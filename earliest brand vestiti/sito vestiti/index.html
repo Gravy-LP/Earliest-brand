@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EARLIEST | The Sovereign Wardrobe - Urban Aristocracy</title>
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="Collezione sartoriale d'archivio EARLIEST. Scopri la fusione perfetta tra supremazia streetwear ed eleganza araldica classica. Capi pesanti da 450 GSM costruiti per il comando.">
+    <meta name="keywords" content="Earliest Abbigliamento, Streetwear di Lusso, Urban Aristocracy, Felpa con Stemma, 450 GSM, Capi d'Archivio, Moda Milano">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Three.js CDN for Interactive 3D Garments -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <!-- Canvas Atmosferico -->
+    <canvas id="atmosphereCanvas"></canvas>
+
+    <!-- Indicatore Progresso di Scorrimento -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Preloader Araldico -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-crest-wrapper">
+                <svg class="preloader-svg" viewBox="0 0 100 100" width="120" height="120">
+                    <circle cx="50" cy="50" r="45" stroke="#ecc097" stroke-width="1" fill="none" class="circle-path" />
+                    <path d="M50 25 L65 40 L65 65 L50 80 L35 65 L35 40 Z" stroke="#660000" stroke-width="1.8" fill="none" class="shield-path" />
+                    <text x="50" y="58" font-family="'Cinzel', serif" font-size="20" font-weight="700" fill="#ecc097" text-anchor="middle" class="letter-path">E</text>
+                </svg>
+            </div>
+            <h2 class="preloader-title">EARLIEST</h2>
+            <div class="preloader-tagline">URBAN ARISTOCRACY</div>
+        </div>
+    </div>
+
+    <!-- Barra di Navigazione Principale -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo-area hover-trigger">
+                <!-- Stemma araldico Champagne Gold dal logo ufficiale -->
+                <img src="../../logo/png senza sfondo/6.png" alt="EARLIEST Crest" class="logo-image">
+                <span class="logo-text">EARLIEST</span>
+            </a>
+            
+            <nav class="desktop-nav">
+                <a href="#hero" class="nav-link hover-trigger">Inizio</a>
+                <a href="#manifesto" class="nav-link hover-trigger">Manifesto</a>
+                <a href="#catalog" class="nav-link hover-trigger">Collezione</a>
+                <a href="#lookbook" class="nav-link hover-trigger">Lookbook</a>
+                <a href="#contact" class="nav-link hover-trigger">Richiesta Capi</a>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Carrello Trigger con Contatore -->
+                <button class="cart-trigger-btn hover-trigger" id="cartTrigger" aria-label="Visualizza Carrello">
+                    <span class="material-symbols-outlined">shopping_bag</span>
+                    <div class="cart-badge" id="cartCount">0</div>
+                </button>
+                
+                <button class="nav-toggle hover-trigger" id="menuToggle" aria-label="Apri Menu Navigazione">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Mobile Laterale -->
+    <div class="side-menu" id="sideMenu">
+        <div class="side-menu-container">
+            <button class="close-menu hover-trigger" id="closeMenu" aria-label="Chiudi Menu">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="side-menu-links">
+                <a href="#hero" class="side-link">INIZIO</a>
+                <a href="#manifesto" class="side-link">MANIFESTO</a>
+                <a href="#catalog" class="side-link">LA COLLEZIONE</a>
+                <a href="#lookbook" class="side-link">LOOKBOOK</a>
+                <a href="#contact" class="side-link">RICHIESTA CAPI</a>
+            </div>
+            <div class="side-menu-footer">
+                <div class="side-footer-tagline">LA NUOVA ÉLITE. EST. 1923.</div>
+                <div class="side-footer-copy">© 2026 EARLIEST CLOTHING CO. TUTTI I DIRITTI RISERVATI.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sezione Hero (Symmetrical Prestige) -->
+    <section class="hero-section" id="hero">
+        <div class="hero-bg-wrapper">
+            <div class="hero-overlay"></div>
+            <!-- Parallasse dello shooting fotografico reale -->
+            <img src="../SHOOTING 1/Replace_the_model's_sweatshirt_with_202605212118 (2).jpeg" alt="EARLIEST Lookbook Campagna" class="hero-bg-img" id="heroBg">
+        </div>
+        
+        <div class="hero-content reveal-stagger">
+            <div class="hero-badge">COLLEZIONE D'ARCHIVIO</div>
+            <img src="../../logo/png senza sfondo/6.png" alt="EARLIEST Crest" class="hero-logo-crest">
+            <h1 class="hero-title scramble-trigger">
+                <span class="title-line">EARLIEST</span>
+            </h1>
+            <div class="hero-tagline">THE NEW ELITE. ESTABLISHED FOR THE FUTURE.</div>
+            <p class="hero-subtitle">
+                Capi d'abbigliamento che incidono il passato e ridefiniscono lo status metropolitano. Una dichiarazione silenziosa di supremazia e futura regalità.
+            </p>
+            <div class="hero-actions">
+                <a href="#catalog" class="btn btn-primary btn-shimmer hover-trigger">
+                    <span>SCOPRI I CAPI</span>
+                    <span class="material-symbols-outlined">arrow_right_alt</span>
+                </a>
+                <a href="#lookbook" class="btn btn-ghost hover-trigger">
+                    <span>GUARDA IL LOOKBOOK</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero-scroll-indicator">
+            <span class="scroll-text">SCORRI IN BASSO</span>
+            <div class="scroll-line-wrapper">
+                <div class="scroll-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider">
+        <div class="section-divider-inner">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-diamond"></div>
+            <div class="section-divider-line"></div>
+        </div>
+    </div>
+
+    <!-- Sezione Manifesto (Grit Meets Luxury) -->
+    <section class="manifesto-section" id="manifesto">
+        <div class="section-container">
+            <div class="manifesto-grid">
+                
+                <div class="manifesto-images reveal-slide-left">
+                    <div class="manifesto-img-box tall">
+                        <img src="../SHOOTING 1/Replace_the_model's_sweatshirt_with_202605212118 (2).jpeg" alt="Modello EARLIEST Streetwear" class="manifesto-img">
+                    </div>
+                    <div class="manifesto-img-box">
+                        <img src="../SHOOTING 1/sostituisci_il_logo_con_questo_202605212019.jpeg" alt="Ricamo Stemma Dettaglio" class="manifesto-img">
+                    </div>
+                    <div class="manifesto-img-box 3d-garment-card" style="background: #030303; border: 1px solid rgba(236,192,151,0.1); position: relative; overflow: hidden; min-height: 250px;">
+                        <div id="canvasManifesto3D" class="interactive-3d-canvas" style="width: 100%; height: 100%; position: absolute; top:0; left:0;"></div>
+                        <div class="hologram-status-badge" style="position: absolute; top: 10px; right: 10px; font-size: 0.65rem; font-family: 'Cinzel', serif; letter-spacing: 0.1em; color: var(--color-secondary); border: 1px solid rgba(236,192,151,0.3); padding: 4px 8px; background: rgba(5,5,5,0.7); z-index: 10;">DIAGNOSTICA 3D</div>
+                    </div>
+                </div>
+
+                <div class="manifesto-text reveal-slide-right reveal-stagger">
+                    <span class="section-tag">IL MANIFESTO</span>
+                    <h2 class="section-title scramble-trigger">PRESENZA SOVRANA</h2>
+                    <div class="divider-line"></div>
+                    <p class="manifesto-paragraph">
+                        <strong>We make identities speak. Bold and clear.</strong>
+                    </p>
+                    <p class="manifesto-paragraph">
+                        Earliest is more than apparel; it is a declaration of legacy and future royalty. We create garments that embody sovereign presence, merging traditional heritage with forward-looking style.
+                    </p>
+                    <p class="manifesto-paragraph">
+                        Every stitch, from strategy to final design, tells a story of unmatched excellence and future command. Heritage meets vanguard.
+                    </p>
+                    
+                    <div class="values-grid">
+                        <div class="values-column">
+                            <h3 class="values-title">PERCHÉ SCEGLIERCI?</h3>
+                            <ul class="values-list reveal-stagger">
+                                <li><strong>Imperial Vanguard:</strong> GRIT MEETS LUXURY.</li>
+                                <li><strong>Sovereign Style:</strong> STREET STATUS REDEFINED.</li>
+                                <li><strong>Unmatched Quality:</strong> COMMITTED TO CRAFT. Earliest garments command a streamlined vanguard.</li>
+                                <li><strong>Command Presence:</strong> OWN THE STREET. Products with a historical and future impact.</li>
+                            </ul>
+                        </div>
+                        <div class="values-column">
+                            <h3 class="values-title">COSA FACCIAMO</h3>
+                            <ul class="values-list reveal-stagger">
+                                <li><strong>HERITAGE APPAREL:</strong> Redefining classic luxury.</li>
+                                <li><strong>COMMAND DESIGN:</strong> Garments built for command.</li>
+                                <li><strong>VANGUARD VISION:</strong> Future-forward apparel concepts.</li>
+                                <li><strong>SARTORIAL EXCELLENCE:</strong> Meticulous craftsmanship and detail.</li>
+                                <li><strong>BRANDED LEGACY:</strong> Products with a historical and future impact.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider">
+        <div class="section-divider-inner">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-diamond"></div>
+            <div class="section-divider-line"></div>
+        </div>
+    </div>
+
+    <!-- Sezione Command Future -->
+    <section class="command-future-section">
+        <div class="section-container text-center reveal-fade">
+            <span class="section-tag">EARLIEST CLOTHING CO. — EST. 1923</span>
+            <h2 class="command-title">LET'S COMMAND<br>A NEW FUTURE<br>TOGETHER.</h2>
+            <div class="divider-line mx-auto" style="margin-top: 36px;"></div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider">
+        <div class="section-divider-inner">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-diamond"></div>
+            <div class="section-divider-line"></div>
+        </div>
+    </div>
+
+    <!-- Sezione Catalogo (The Archival Collection) -->
+    <section class="catalog-section" id="catalog">
+        <div class="section-container">
+            <div class="section-header text-center reveal-stagger">
+                <span class="section-tag">SHOPPING D'ÉLITE</span>
+                <h2 class="section-title scramble-trigger">L'ARCHIVIO CAPI</h2>
+                <div class="divider-line mx-auto"></div>
+            </div>
+
+            <div class="product-marquee-container">
+                <div class="product-marquee-track">
+
+                
+                <!-- Product 1 -->
+                <div class="product-card reveal-fade-up">
+                    <div class="product-card-glare"></div>
+                    <div class="product-image-container">
+                        <div class="product-exclusivity-badge">ESCLUSIVO</div>
+                        <img src="../SHOOTING 1/Replace_the_model's_sweatshirt_with_202605212121 (1).jpeg" alt="FELPA CON STEMMA IMPERIALE" class="product-image">
+                        <div class="product-card-overlay">
+                            <button class="product-details-btn hover-trigger" data-id="1">DETTAGLI CAPI</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">FELPA | ARCHIVIO</span>
+                        <h3 class="product-title">FELPA CON STEMMA IMPERIALE</h3>
+                        <div class="product-price">€ 189.00</div>
+                        <button class="btn btn-primary btn-full hover-trigger catalog-add-btn" data-id="1" style="padding: 10px; margin-top: 10px; font-size: 0.7rem;">
+                            <span>ACQUISTA ORA</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card reveal-fade-up" style="animation-delay: 0.15s;">
+                    <div class="product-card-glare"></div>
+                    <div class="product-image-container">
+                        <div class="product-exclusivity-badge">LIMITATO</div>
+                        <img src="../SHOOTING 1/Replace_the_model's_sweatshirt_with_202605212121 (2).jpeg" alt="HOODIE VANGUARD DI LUSSO" class="product-image">
+                        <div class="product-card-overlay">
+                            <button class="product-details-btn hover-trigger" data-id="2">DETTAGLI CAPI</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">HOODIE | ARCHIVIO</span>
+                        <h3 class="product-title">HOODIE VANGUARD DI LUSSO</h3>
+                        <div class="product-price">€ 220.00</div>
+                        <button class="btn btn-primary btn-full hover-trigger catalog-add-btn" data-id="2" style="padding: 10px; margin-top: 10px; font-size: 0.7rem;">
+                            <span>ACQUISTA ORA</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card reveal-fade-up" style="animation-delay: 0.3s;">
+                    <div class="product-card-glare"></div>
+                    <div class="product-image-container">
+                        <div class="product-exclusivity-badge">SOVRANO</div>
+                        <img src="../SHOOTING 1/rendi_il_logo_più_piccolo_202605212124.jpeg" alt="POLO ARISTOCRATICA SLIM-FIT" class="product-image">
+                        <div class="product-card-overlay">
+                            <button class="product-details-btn hover-trigger" data-id="3">DETTAGLI CAPI</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">POLO | SOVRANA</span>
+                        <h3 class="product-title">POLO ARISTOCRATICA SLIM-FIT</h3>
+                        <div class="product-price">€ 125.00</div>
+                        <button class="btn btn-primary btn-full hover-trigger catalog-add-btn" data-id="3" style="padding: 10px; margin-top: 10px; font-size: 0.7rem;">
+                            <span>ACQUISTA ORA</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card reveal-fade-up" style="animation-delay: 0.45s;">
+                    <div class="product-card-glare"></div>
+                    <div class="product-image-container">
+                        <div class="product-exclusivity-badge">ARCHIVIO</div>
+                        <img src="../SHOOTING 1/sposta_il_logo_in_alto_202605212121.jpeg" alt="CREWNECK DETTAGLI ROSSI" class="product-image">
+                        <div class="product-card-overlay">
+                            <button class="product-details-btn hover-trigger" data-id="4">DETTAGLI CAPI</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">CREWNECK | DETTAGLI</span>
+                        <h3 class="product-title">CREWNECK DETTAGLI ROSSI</h3>
+                        <div class="product-price">€ 195.00</div>
+                        <button class="btn btn-primary btn-full hover-trigger catalog-add-btn" data-id="4" style="padding: 10px; margin-top: 10px; font-size: 0.7rem;">
+                            <span>ACQUISTA ORA</span>
+                        </button>
+                    </div>
+                </div>
+
+
+                
+                <!-- Product 1 -->
+                <div class="product-card ">
+                    <div class="product-card-glare"></div>
+                    <div class="product-image-container">
+                        <div class="product-exclusivity-badge">ESCLUSIVO</div>
+                        <img src="../SHOOTING 1/Replace_the_model's_sweatshirt_with_202605212121 (1).jpeg" alt="FELPA CON STEMMA IMPERIALE" class="product-image">
+                        <div class="product-card-overlay">
+                            <button class="product-details-btn hover-trigger" data-id="1">DETTAGLI CAPI</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">FELPA | ARCHIVIO</span>
+                        <h3 class="product-title">FELPA CON STEMMA IMPERIALE</h3>
+                        <div class="product-price">€ 189.00</div>
+                        <button class="btn btn-primary btn-full hover-trigger catalog-add-btn" data-id="1" style="padding: 10px; margin-top: 10px; font-size: 0.7rem;">
+                            <span>ACQUISTA ORA</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card " style="animation-delay: 0.15s;">
+                    <div class="product-card-glare"></div>
+                    <div class="product-image-container">
+                        <div class="product-exclusivity-badge">LIMITATO</div>
+                        <img src="../SHOOTING 1/Replace_the_model's_sweatshirt_with_202605212121 (2).jpeg" alt="HOODIE VANGUARD DI LUSSO" class="product-image">
+                        <div class="product-card-overlay">
+                            <button class="product-details-btn hover-trigger" data-id="2">DETTAGLI CAPI</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">HOODIE | ARCHIVIO</span>
+                        <h3 class="product-title">HOODIE VANGUARD DI LUSSO</h3>
+                        <div class="product-price">€ 220.00</div>
+                        <button class="btn btn-primary btn-full hover-trigger catalog-add-btn" data-id="2" style="padding: 10px; margin-top: 10px; font-size: 0.7rem;">
+                            <span>ACQUISTA ORA</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card " style="animation-delay: 0.3s;">
+                    <div class="product-card-glare"></div>
+                    <div class="product-image-container">
+                        <div class="product-exclusivity-badge">SOVRANO</div>
+                        <img src="../SHOOTING 1/rendi_il_logo_più_piccolo_202605212124.jpeg" alt="POLO ARISTOCRATICA SLIM-FIT" class="product-image">
+                        <div class="product-card-overlay">
+                            <button class="product-details-btn hover-trigger" data-id="3">DETTAGLI CAPI</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">POLO | SOVRANA</span>
+                        <h3 class="product-title">POLO ARISTOCRATICA SLIM-FIT</h3>
+                        <div class="product-price">€ 125.00</div>
+                        <button class="btn btn-primary btn-full hover-trigger catalog-add-btn" data-id="3" style="padding: 10px; margin-top: 10px; font-size: 0.7rem;">
+                            <span>ACQUISTA ORA</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card " style="animation-delay: 0.45s;">
+                    <div class="product-card-glare"></div>
+                    <div class="product-image-container">
+                        <div class="product-exclusivity-badge">ARCHIVIO</div>
+                        <img src="../SHOOTING 1/sposta_il_logo_in_alto_202605212121.jpeg" alt="CREWNECK DETTAGLI ROSSI" class="product-image">
+                        <div class="product-card-overlay">
+                            <button class="product-details-btn hover-trigger" data-id="4">DETTAGLI CAPI</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">CREWNECK | DETTAGLI</span>
+                        <h3 class="product-title">CREWNECK DETTAGLI ROSSI</h3>
+                        <div class="product-price">€ 195.00</div>
+                        <button class="btn btn-primary btn-full hover-trigger catalog-add-btn" data-id="4" style="padding: 10px; margin-top: 10px; font-size: 0.7rem;">
+                            <span>ACQUISTA ORA</span>
+                        </button>
+                    </div>
+                </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider">
+        <div class="section-divider-inner">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-diamond"></div>
+            <div class="section-divider-line"></div>
+        </div>
+    </div>
+
+    <!-- Sezione Vetrina Vestiti (Street Collection) -->
+    <section class="street-collection-section" id="street-collection">
+        <div class="section-container">
+            <div class="section-header text-center reveal-stagger">
+                <span class="section-tag">STREET COLLECTION</span>
+                <h2 class="section-title scramble-trigger">I CAPI IN DETTAGLIO</h2>
+                <div class="divider-line mx-auto"></div>
+            </div>
+
+            <div class="clothes-gallery-grid">
+                <!-- Capo 1 -->
+                <div class="clothes-gallery-item reveal-fade-up">
+                    <img src="../SHOOTING 1/Replace_the_model's_sweatshirt_with_202605212121 (1).jpeg" alt="Felpa con Stemma">
+                    <div class="clothes-gallery-overlay">
+                        <h4>FELPA CON STEMMA IMPERIALE</h4>
+                        <span>450 GSM - Taglio Imperiale</span>
+                    </div>
+                </div>
+                <!-- Capo 2 -->
+                <div class="clothes-gallery-item reveal-fade-up" style="animation-delay: 0.15s;">
+                    <img src="../SHOOTING 1/Replace_the_model's_sweatshirt_with_202605212121 (2).jpeg" alt="Hoodie Vanguard">
+                    <div class="clothes-gallery-overlay">
+                        <h4>HOODIE VANGUARD DI LUSSO</h4>
+                        <span>Cappuccio Rigido - Boxy Fit</span>
+                    </div>
+                </div>
+                <!-- Capo 3 -->
+                <div class="clothes-gallery-item reveal-fade-up" style="animation-delay: 0.3s;">
+                    <img src="../SHOOTING 1/rendi_il_logo_più_piccolo_202605212124.jpeg" alt="Polo Aristocratica">
+                    <div class="clothes-gallery-overlay">
+                        <h4>POLO ARISTOCRATICA SLIM-FIT</h4>
+                        <span>Colletto Rigido a Coste</span>
+                    </div>
+                </div>
+                <!-- Capo 4 -->
+                <div class="clothes-gallery-item reveal-fade-up" style="animation-delay: 0.45s;">
+                    <img src="../SHOOTING 1/sposta_il_logo_in_alto_202605212121.jpeg" alt="Crewneck Dettagli Rossi">
+                    <div class="clothes-gallery-overlay">
+                        <h4>CREWNECK DETTAGLI ROSSI</h4>
+                        <span>Cuciture Piatte a Tre Aghi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider">
+        <div class="section-divider-inner">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-diamond"></div>
+            <div class="section-divider-line"></div>
+        </div>
+    </div>
+
+    <!-- Sezione Lookbook / Campaign Showcase (Asymmetrical Editorial Masonry) -->
+    <section class="lookbook-section" id="lookbook">
+        <div class="section-container">
+            <div class="section-header text-center reveal-stagger">
+                <span class="section-tag">FOTO DI CAMPAGNA</span>
+                <h2 class="section-title scramble-trigger">EDITORIAL MILANO</h2>
+                <div class="divider-line mx-auto"></div>
+            </div>
+
+            <div class="lookbook-grid">
+                
+                <!-- Card 1 (Col 8) -->
+                <div class="lookbook-card lookbook-col-8 reveal-slide-left">
+                    <img src="../SHOOTING 1/Replace_the_model's_sweatshirt_with_202605212121 (1).jpeg" alt="EARLIEST Shooting Modello Vettura">
+                    <div class="lookbook-card-info">
+                        <h3 class="lookbook-card-title">ATTEGGIAMENTO SOVRANO</h3>
+                        <p class="lookbook-card-desc">Catturato nell'abitacolo metropolitano - Manifattura milanese.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 (Col 4) -->
+                <div class="lookbook-card lookbook-col-4 reveal-slide-right">
+                    <img src="../SHOOTING 1/Update_the_sweatshirt_logo_in_202605212123.jpeg" alt="EARLIEST Shooting Dettagli Schiena">
+                    <div class="lookbook-card-info">
+                        <h3 class="lookbook-card-title">DETTAGLIO POSTERIORE</h3>
+                        <p class="lookbook-card-desc">Finitura della schiena e ricamo stemma.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 (Col 6) - 3D Interactive -->
+                <div class="lookbook-card lookbook-col-6 reveal-fade-up 3d-garment-card" style="height: 500px; background: #030303; border: 1px solid rgba(236,192,151,0.1); overflow: hidden; position: relative;">
+                    <div id="canvasLookbook3D" class="interactive-3d-canvas" style="width: 100%; height: 100%; position: relative;"></div>
+                    <div class="hologram-status-badge" style="position: absolute; top: 15px; right: 15px; font-size: 0.7rem; font-family: 'Cinzel', serif; letter-spacing: 0.1em; color: var(--color-primary-bright); border: 1px solid rgba(139,0,0,0.4); padding: 5px 10px; background: rgba(5,5,5,0.85); z-index: 10;">LABORATORIO 3D</div>
+                    <div class="lookbook-card-info" style="z-index: 5;">
+                        <h3 class="lookbook-card-title">SCULTURA DIGITALE</h3>
+                        <p class="lookbook-card-desc">Usa il mouse per trascinare, ruotare ed esaminare l'archivio geometrico.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 (Col 6) -->
+                <div class="lookbook-card lookbook-col-6 reveal-fade-up" style="animation-delay: 0.2s;">
+                    <img src="../SHOOTING 1/restringi_il_logo_senza_nmodificare_202605212130.jpeg" alt="EARLIEST Shooting Close-up Stemma">
+                    <div class="lookbook-card-info">
+                        <h3 class="lookbook-card-title">STEMMA VANGUARD</h3>
+                        <p class="lookbook-card-desc">Corona e scudo ricamato su trama nera.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider">
+        <div class="section-divider-inner">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-diamond"></div>
+            <div class="section-divider-line"></div>
+        </div>
+    </div>
+
+    <!-- Sezione Contatti & Richiesta Capi (Command Gate) -->
+    <section class="contact-section" id="contact">
+        <div class="section-container">
+            <div class="contact-grid">
+                
+                <div class="contact-text reveal-slide-left reveal-stagger">
+                    <span class="section-tag">ACCESSO ARCHIVIO</span>
+                    <h2 class="section-title scramble-trigger">UNISCITI ALL'ÉLITE</h2>
+                    <div class="divider-line"></div>
+                    <p class="contact-desc">
+                        La nostra capacità produttiva sartoriale è rigorosamente controllata. Rilasciamo capi in stock limitati per tutelare l'esclusività del brand.
+                    </p>
+                    <p class="contact-desc">
+                        Invia la tua richiesta d'accesso. I profili ritenuti idonei riceveranno le credenziali digitali per accedere alle release segrete del radar sovrano.
+                    </p>
+                    
+                    <div class="contact-info-block">
+                        <div class="info-row">
+                            <span class="material-symbols-outlined">location_on</span>
+                            <span class="info-val">MILANO | QUARTIERE ARISTOCRATICO</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="material-symbols-outlined">mail</span>
+                            <span class="info-val">RADAR@EARLIEST.COM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper reveal-slide-right">
+                    <form class="luxury-form reveal-stagger" id="commandForm" onsubmit="event.preventDefault();">
+                        <div class="form-group">
+                            <input type="text" id="formName" required placeholder=" " class="form-input hover-trigger">
+                            <label for="formName" class="form-label">NOME / ENTITÀ SOVRANA</label>
+                            <span class="form-line"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" id="formEmail" required placeholder=" " class="form-input hover-trigger">
+                            <label for="formEmail" class="form-label">EMAIL DI CONTATTO</label>
+                            <span class="form-line"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <select id="formInterest" required class="form-input form-select hover-trigger">
+                                <option value="" disabled selected hidden>INTERESSE PRINCIPALE</option>
+                                <option value="capsule_archive">RELEASE CAPI D'ARCHIVIO (450 GSM)</option>
+                                <option value="private_membership">MEMBERSHIP D'ÉLITE PRIVATA</option>
+                                <option value="custom_tailoring">SARTORIA SU MISURA DI COMANDO</option>
+                            </select>
+                            <span class="form-line"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="formMessage" required placeholder=" " rows="4" class="form-input form-textarea hover-trigger"></textarea>
+                            <label for="formMessage" class="form-label">PERCHÉ VUOI ENTRARE NELL'ARISTOCRAZIA?</label>
+                            <span class="form-line"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full btn-shimmer hover-trigger" id="submitFormBtn">
+                            <span>INVIA RICHIESTA ACCESSO</span>
+                            <span class="material-symbols-outlined">bolt</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Cassetto Carrello Scorrevole (Interactive Sidebar Cart) -->
+    <div class="cart-drawer-backdrop" id="cartBackdrop"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h3 class="cart-drawer-title">IL CARRELLO</h3>
+            <button class="close-cart-btn hover-trigger" id="closeCart" aria-label="Chiudi Carrello">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        
+        <!-- Lista Elementi Carrello -->
+        <div class="cart-items-wrapper" id="cartItemsWrapper">
+            <!-- Popolato via JS -->
+        </div>
+
+        <div class="cart-drawer-footer">
+            <div class="cart-subtotal-row">
+                <span class="cart-subtotal-label">SUBTOTALE:</span>
+                <span class="cart-subtotal-val" id="cartSubtotalVal">€ 0.00</span>
+            </div>
+            <div class="cart-disclaimer">
+                *CAPI D'ARCHIVIO IN ED. LIMITATA. IL TUO ORDINE COSTITUISCE PRESTIGIO REALE.
+            </div>
+            <button class="btn btn-primary btn-full btn-shimmer hover-trigger" id="checkoutBtn">
+                <span>PROCEDI AL CHECKOUT</span>
+                <span class="material-symbols-outlined">workspace_premium</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modale Prodotto Dettagliato -->
+    <div class="garment-modal" id="garmentModal">
+        <div class="garment-modal-backdrop" id="modalBackdrop"></div>
+        <div class="garment-modal-content">
+            <button class="garment-modal-close hover-trigger" id="closeModal" aria-label="Chiudi Finestra">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="modal-grid">
+                <div class="modal-gallery" style="position: relative; overflow: hidden; background-color: #030303;">
+                    <div class="hologram-container" id="hologramContainer" style="width: 100%; height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center; position: relative; perspective: 1500px; overflow: hidden;">
+                        <div class="hologram-grid-overlay"></div>
+                        <img src="" alt="Capo Selezionato" id="modalImg" class="modal-large-img" style="max-height: 100%; max-width: 100%; object-fit: contain; transition: transform 0.1s ease-out; transform-style: preserve-3d; z-index: 5;">
+                        <div class="hologram-scanner-line"></div>
+                        <div class="hologram-status-badge">TERMINALE OFF</div>
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <div class="modal-item-tag" id="modalTag">FELPA</div>
+                    <h2 class="modal-item-title" id="modalTitle">TITOLO PRODOTTO</h2>
+                    <div class="modal-item-price" id="modalPrice">€ 189.00</div>
+                    <div class="divider-line"></div>
+                    
+                    <p class="modal-item-desc" id="modalDesc">
+                        Caricamento descrizione del capo d'archivio...
+                    </p>
+                    
+                    <div class="modal-specifications">
+                        <div class="spec-row">
+                            <span class="spec-label">VESTIBILITÀ:</span>
+                            <span class="spec-val" id="modalFit">Regular</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">CUCITURE:</span>
+                            <span class="spec-val" id="modalStitch">Piatte</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">TESSUTO:</span>
+                            <span class="spec-val">Cotone Spazzolato Pesante 450 GSM</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-sizes">
+                        <span class="size-label">TAGLIA SELEZIONATA:</span>
+                        <div class="sizes-row">
+                            <button class="size-btn hover-trigger">S</button>
+                            <button class="size-btn active hover-trigger">M</button>
+                            <button class="size-btn hover-trigger">L</button>
+                            <button class="size-btn hover-trigger">XL</button>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-ghost btn-full hover-trigger" id="toggle3DScanBtn" style="margin-bottom: 12px; border-color: var(--color-primary-bright); color: var(--color-primary-bright); background-color: rgba(139, 0, 0, 0.05);">
+                        <span>SCANSIONE OLOGRAFICA 3D</span>
+                        <span class="material-symbols-outlined" style="font-size: 18px;">radar</span>
+                    </button>
+
+                    <button class="btn btn-primary btn-full hover-trigger" id="modalAddToCartBtn">
+                        <span>AGGIUNGI AL CARRELLO</span>
+                        <span class="material-symbols-outlined">workspace_premium</span>
+                    </button>
+                    
+                    <div class="modal-disclaimer">
+                        *EDIZIONE LIMITATA DI LUSSO METROPOLITANO.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale di Checkout d'Elite (Command Checkout Gate) -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-modal-backdrop" id="checkoutBackdrop"></div>
+        <div class="checkout-modal-content">
+            <button class="checkout-modal-close hover-trigger" id="closeCheckout" aria-label="Chiudi Checkout">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <h2 class="checkout-modal-title">CONFERMA D'ACQUISTO</h2>
+            <div class="checkout-modal-subtitle">TERMINA IL TUO COMANDO ARISTOCRATICO</div>
+            
+            <div class="checkout-summary-box">
+                <div style="font-family: 'Cinzel', serif; font-size: 0.8rem; font-weight: 700; color: var(--color-secondary); margin-bottom: 12px; letter-spacing: 0.1em;">RIEPILOGO CAPI</div>
+                <div id="checkoutSummaryItems">
+                    <!-- Popolato via JS -->
+                </div>
+                <div class="checkout-summary-row" style="margin-top: 10px;">
+                    <span class="checkout-summary-label">TOTALE ORDINE:</span>
+                    <span id="checkoutTotalVal" style="color: var(--color-text-light); font-size: 1.1rem; font-weight: 800;">€ 0.00</span>
+                </div>
+            </div>
+
+            <form class="luxury-form" id="checkoutForm" onsubmit="event.preventDefault();" style="padding: 0; border: none; background: none;">
+                <div class="form-group">
+                    <input type="text" id="checkoutName" required placeholder=" " class="form-input hover-trigger">
+                    <label for="checkoutName" class="form-label">NOME & COGNOME DESTINATARIO</label>
+                    <span class="form-line"></span>
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" id="checkoutAddress" required placeholder=" " class="form-input hover-trigger">
+                    <label for="checkoutAddress" class="form-label">INDIRIZZO DI SPEDIZIONE COMPLETO</label>
+                    <span class="form-line"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="checkoutEmail" required placeholder=" " class="form-input hover-trigger">
+                    <label for="checkoutEmail" class="form-label">EMAIL PER TRACCIAMENTO</label>
+                    <span class="form-line"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full btn-shimmer hover-trigger" id="checkoutSubmitBtn" style="margin-top: 20px;">
+                    <span>INVIA CANDIDATURA D'ORDINE</span>
+                    <span class="material-symbols-outlined">bolt</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Istituzionale -->
+    <footer class="main-footer">
+        <div class="section-container">
+            <div class="footer-grid reveal-stagger">
+                
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="../../logo/png senza sfondo/6.png" alt="EARLIEST Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">EARLIEST</span>
+                    </div>
+                    <p class="footer-brand-desc">
+                        "STABILIAMO LA NUOVA ÉLITE METROPOLITANA. FONDATO PER IL FUTURO."
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <h5 class="footer-links-title">NAVIGAZIONE</h5>
+                    <a href="#hero" class="footer-link hover-trigger">Inizio</a>
+                    <a href="#manifesto" class="footer-link hover-trigger">Il Manifesto</a>
+                    <a href="#catalog" class="footer-link hover-trigger">La Collezione</a>
+                    <a href="#lookbook" class="footer-link hover-trigger">Lookbook</a>
+                </div>
+
+                <div class="footer-links">
+                    <h5 class="footer-links-title">ARCHIVIO CAPI</h5>
+                    <a href="#" class="footer-link hover-trigger">Manuale di Manutenzione 450 GSM</a>
+                    <a href="#" class="footer-link hover-trigger">Termini di Esclusività</a>
+                    <a href="#" class="footer-link hover-trigger">Politiche d'Invio</a>
+                </div>
+
+                <div class="footer-newsletter reveal-stagger">
+                    <h5 class="footer-links-title">RADAR SOVRANO</h5>
+                    <p class="newsletter-desc">Ricevi credenziali temporanee ad accesso esclusivo per release e drop segreti.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="IL TUO INDIRIZZO EMAIL..." class="newsletter-input">
+                        <button class="newsletter-btn hover-trigger" aria-label="Iscriviti"><span class="material-symbols-outlined">arrow_right_alt</span></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copy">
+                    © 2026 EARLIEST CLOTHING CO. & LOOKBOOK ARCHIVE. TUTTI I DIRITTI RISERVATI.
+                </div>
+                <div class="footer-meta">
+                    L'HERITAGE INCONTRA L'AVANGUARDIA. EST. 1923.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cursore Luxury Custom LERP -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+</body>
+</html>

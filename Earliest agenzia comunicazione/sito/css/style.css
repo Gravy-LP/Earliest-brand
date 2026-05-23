@@ -1,0 +1,2069 @@
+/* ==========================================================================
+   EARLIEST CLOTHING CO. & CREATIVE DIRECTION - DESIGN SYSTEM & LAYOUT ENGINE
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Variabili & Reset
+   -------------------------------------------------------------------------- */
+:root {
+    /* Tavolozza "Urban Aristocracy" */
+    --color-bg: #050505;          /* Obsidian Black (Sfondo principale) */
+    --color-surface: #0f0000;     /* Deep Crimson-Black (Sfondo contenitori) */
+    --color-surface-bright: #201f1f;
+    --color-surface-container: #1c1b1b;
+    --color-primary: #660000;     /* Rosso Imperiale / Blood Heritage */
+    --color-secondary: #ecc097;   /* Oro Araldico / Champagne Gold */
+    --color-slate: #5a5a5a;       /* Slate Depth (Testo secondario / Dividers) */
+    --color-text-light: #e5e2e1;  /* Off-White (Testo principale) */
+    --color-accent-dim: rgba(236, 192, 151, 0.15);
+    --color-red-glow: rgba(102, 0, 0, 0.4);
+    
+    /* Tipografia */
+    --font-headline: 'Syne', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+    
+    /* Spaziature & Struttura */
+    --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --margin-desktop: 64px;
+    --margin-mobile: 16px;
+    --container-max: 1440px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none; /* Nasconde il cursore di default per usare quello personalizzato */
+    border-radius: 0px !important; /* Politica Rigorosa degli Spigoli Vivi a 90 Gradi */
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--color-bg);
+    color: var(--color-text-light);
+    font-family: var(--font-body);
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--color-bg);
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --------------------------------------------------------------------------
+   2. Canvas Atmosferico & Cursore Custom
+   -------------------------------------------------------------------------- */
+#atmosphereCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.custom-cursor {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-secondary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.custom-cursor-follower {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--color-secondary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease-out, width 0.3s, height 0.3s, border-color 0.3s;
+    background-color: rgba(236, 192, 151, 0.02);
+}
+
+/* Stati Hover per Cursore */
+.custom-cursor.hovered {
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-primary);
+}
+
+.custom-cursor-follower.hovered {
+    width: 56px;
+    height: 56px;
+    border-color: var(--color-primary);
+    background-color: rgba(102, 0, 0, 0.05);
+}
+
+/* Nascondi cursore custom su mobile */
+@media (max-width: 1024px) {
+    * {
+        cursor: auto !important;
+    }
+    .custom-cursor, .custom-cursor-follower {
+        display: none !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   3. Preloader Animato
+   -------------------------------------------------------------------------- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-bg);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.preloader-content {
+    text-align: center;
+}
+
+.preloader-crest-wrapper {
+    margin-bottom: 24px;
+}
+
+.preloader-svg {
+    filter: drop-shadow(0 0 15px var(--color-red-glow));
+}
+
+.circle-path {
+    stroke-dasharray: 283;
+    stroke-dashoffset: 283;
+    animation: drawCircle 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.shield-path {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: drawShield 2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+}
+
+.letter-path {
+    opacity: 0;
+    animation: fadeInLetter 1s ease 1.5s forwards;
+}
+
+.preloader-title {
+    font-family: var(--font-headline);
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--color-text-light);
+    margin-bottom: 8px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUpText 1s ease 1.8s forwards;
+}
+
+.preloader-tagline {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.4em;
+    color: var(--color-secondary);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUpText 1s ease 2s forwards;
+}
+
+/* --------------------------------------------------------------------------
+   4. Scroll Progress & Header Fissa
+   -------------------------------------------------------------------------- */
+.scroll-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    z-index: 10000;
+    background-color: rgba(5, 5, 5, 0.2);
+}
+
+.scroll-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    box-shadow: 0 0 10px rgba(236, 192, 151, 0.5);
+}
+
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(5, 5, 5, 0.85);
+    border-bottom: 1px solid rgba(236, 192, 151, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: var(--transition-smooth);
+}
+
+.main-header.scrolled {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(236, 192, 151, 0.2);
+    background-color: rgba(5, 5, 5, 0.95);
+}
+
+.header-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 20px var(--margin-desktop);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition-smooth);
+}
+
+.main-header.scrolled .header-container {
+    padding: 10px var(--margin-desktop);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-image {
+    height: 40px;
+    width: auto;
+    object-contain: fit;
+    filter: drop-shadow(0 0 4px var(--color-red-glow));
+    transition: var(--transition-fast);
+}
+
+.logo-area:hover .logo-image {
+    transform: rotate(10deg) scale(1.05);
+}
+
+.logo-text {
+    font-family: var(--font-headline);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--color-text-light);
+    transition: var(--transition-fast);
+}
+
+.logo-area:hover .logo-text {
+    color: var(--color-secondary);
+}
+
+.desktop-nav {
+    display: flex;
+    gap: 36px;
+}
+
+.nav-link {
+    font-family: var(--font-headline);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--color-slate);
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    padding: 8px 0;
+    transition: var(--transition-fast);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-secondary);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: var(--color-secondary);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    flex-direction: column;
+    gap: 6px;
+    padding: 6px;
+}
+
+.hamburger-line {
+    width: 24px;
+    height: 1px;
+    background-color: var(--color-text-light);
+    transition: var(--transition-fast);
+}
+
+.nav-toggle:hover .hamburger-line {
+    background-color: var(--color-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   5. Side Slide Menu (Mobile Overlay)
+   -------------------------------------------------------------------------- */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(5, 5, 5, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 1000;
+    transition: right 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    border-left: 1px solid rgba(236, 192, 151, 0.15);
+}
+
+.side-menu.active {
+    right: 0;
+}
+
+.side-menu-container {
+    padding: 120px 40px 60px 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.close-menu {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    font-size: 2rem;
+}
+
+.close-menu span {
+    font-size: 32px;
+}
+
+.close-menu:hover {
+    color: var(--color-secondary);
+}
+
+.side-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.side-link {
+    font-family: var(--font-headline);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.side-link:hover {
+    color: var(--color-secondary);
+    transform: translateX(10px);
+}
+
+.side-menu-footer {
+    border-top: 1px solid rgba(236, 192, 151, 0.1);
+    padding-top: 24px;
+}
+
+.side-footer-tagline {
+    font-family: var(--font-headline);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: var(--color-secondary);
+    margin-bottom: 8px;
+}
+
+.side-footer-copy {
+    font-size: 0.7rem;
+    color: var(--color-slate);
+}
+
+/* Rresponsività Header */
+@media (max-width: 1024px) {
+    .header-container {
+        padding: 20px var(--margin-mobile);
+    }
+    .main-header.scrolled .header-container {
+        padding: 12px var(--margin-mobile);
+    }
+    .desktop-nav {
+        display: none;
+    }
+    .nav-toggle {
+        display: flex;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   6. Sezione Hero & Background Parallax
+   -------------------------------------------------------------------------- */
+.hero-section {
+    position: relative;
+    min-h: 100vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+    padding-top: 80px;
+}
+
+.hero-bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.18;
+    transform: scale(1.05);
+    transition: transform 0.1s ease-out; /* Parallax fluido tramite JS */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(15, 0, 0, 0.2) 0%, rgba(5, 5, 5, 0.95) 85%);
+}
+
+.hero-content {
+    max-width: var(--container-max);
+    width: 100%;
+    padding: 0 var(--margin-desktop);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+}
+
+.hero-badge {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+    padding: 6px 16px;
+    margin-bottom: 24px;
+    display: inline-block;
+}
+
+.hero-title {
+    font-family: var(--font-headline);
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+.hero-title .title-line {
+    display: block;
+    text-shadow: 0 0 10px rgba(5,5,5,0.8);
+}
+
+.hero-title .text-accent {
+    color: var(--color-primary);
+    text-shadow: 0 0 15px var(--color-red-glow);
+}
+
+.hero-subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 2vw, 1.2rem);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: var(--color-text-light);
+    max-width: 720px;
+    margin-bottom: 48px;
+    line-height: 1.8;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Pulsanti Elite */
+.btn {
+    padding: 16px 36px;
+    font-family: var(--font-headline);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 0 15px var(--color-red-glow);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+    box-shadow: 0 0 20px rgba(236, 192, 151, 0.2);
+}
+
+.btn-ghost {
+    background-color: transparent;
+    color: var(--color-text-light);
+    border: 1px solid var(--color-slate);
+}
+
+.btn-ghost:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+    background-color: rgba(236, 192, 151, 0.02);
+}
+
+.btn-full {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Effetto Riflesso Dorato (Shimmer) */
+.btn-shimmer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 45%, rgba(236, 192, 151, 0.3) 50%, transparent 55%);
+    transform: rotate(45deg);
+    transition: 0.8s;
+    opacity: 0;
+}
+
+.btn-shimmer:hover::before {
+    animation: shimmerEffect 1.2s ease-in-out;
+    opacity: 1;
+}
+
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    opacity: 0.6;
+    transition: var(--transition-fast);
+}
+
+.hero-scroll-indicator:hover {
+    opacity: 1;
+}
+
+.scroll-text {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+}
+
+.scroll-line-wrapper {
+    width: 1px;
+    height: 60px;
+    background-color: rgba(236, 192, 151, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-line {
+    width: 100%;
+    height: 20px;
+    background-color: var(--color-secondary);
+    position: absolute;
+    top: -20px;
+    animation: scrollIndicatorMove 2s infinite cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 60px;
+    }
+    .hero-content {
+        padding: 0 var(--margin-mobile);
+    }
+    .hero-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 28px;
+    }
+    .scroll-line-wrapper {
+        height: 40px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   7. Elementi Condivisi delle Sezioni (Editorial Style)
+   -------------------------------------------------------------------------- */
+section {
+    padding: 120px 0;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.section-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--margin-desktop);
+}
+
+.section-container-fluid {
+    width: 100%;
+    padding: 0;
+}
+
+.section-tag {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.section-title {
+    font-family: var(--font-headline);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.divider-line {
+    width: 80px;
+    height: 1px;
+    background-color: var(--color-primary);
+    box-shadow: 0 0 5px var(--color-primary);
+    margin-bottom: 32px;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 80px 0;
+    }
+    .section-container {
+        padding: 0 var(--margin-mobile);
+    }
+}
+
+
+
+/* --------------------------------------------------------------------------
+   9. Sezione 2: Servizi di Comando (Griglia Monumentale a 3 Colonne)
+   -------------------------------------------------------------------------- */
+.services-section {
+    background-color: var(--color-surface);
+    border-top: 1px solid rgba(236, 192, 151, 0.05);
+    border-bottom: 1px solid rgba(236, 192, 151, 0.05);
+}
+
+.services-monument-grid {
+    display: grid;
+    grid-template-cols: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 56px;
+}
+
+.service-monument-card {
+    background-color: #050505;
+    border: 1px solid var(--color-accent-dim);
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 560px;
+    transition: var(--transition-smooth);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.service-monument-card:hover {
+    border-color: rgba(236, 192, 151, 0.35);
+    box-shadow: 0 15px 40px rgba(5,5,5,0.95);
+    background-color: rgba(15, 0, 0, 0.25);
+}
+
+/* Scanner beam ad alta intensità per le card servizi */
+.service-card-scanner {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-secondary), transparent);
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.service-monument-card:hover .service-card-scanner {
+    opacity: 1;
+    animation: scannerBeamMove 2.5s infinite linear;
+}
+
+.service-card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.service-card-num {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--color-primary);
+}
+
+.service-card-title {
+    font-family: var(--font-headline);
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--color-text-light);
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.service-monument-card:hover .service-card-title {
+    color: var(--color-secondary);
+    text-shadow: 0 0 10px rgba(236, 192, 151, 0.15);
+}
+
+.service-card-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(236, 192, 151, 0.1);
+    margin: 24px 0;
+}
+
+.service-bullets-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-grow: 1;
+    margin-bottom: 32px;
+}
+
+.service-bullets-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.bullet-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-primary);
+    box-shadow: 0 0 8px var(--color-primary);
+    margin-top: 8px;
+    flex-shrink: 0;
+    transition: var(--transition-fast);
+}
+
+.service-monument-card:hover .bullet-dot {
+    background-color: var(--color-secondary);
+    box-shadow: 0 0 10px var(--color-secondary);
+}
+
+.bullet-text {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(229, 226, 225, 0.8);
+    line-height: 1.5;
+    transition: var(--transition-fast);
+}
+
+.service-monument-card:hover .bullet-text {
+    color: var(--color-text-light);
+}
+
+.service-card-footer {
+    width: 100%;
+}
+
+.commission-btn {
+    border-color: rgba(236, 192, 151, 0.25);
+    color: rgba(229, 226, 225, 0.9);
+}
+
+.commission-btn:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+
+@media (max-width: 1100px) {
+    .services-monument-grid {
+        grid-template-cols: repeat(2, 1fr);
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-monument-grid {
+        grid-template-cols: 1fr;
+        gap: 24px;
+        margin-top: 36px;
+    }
+    .service-monument-card {
+        padding: 36px 28px;
+        min-height: auto;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   10. Sezione 3: Pilastri del Comando (Griglia 3D Premium)
+   -------------------------------------------------------------------------- */
+.pillars-section {
+    background-color: #050505;
+}
+
+.pillars-grid {
+    display: grid;
+    grid-template-cols: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.pillar-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-accent-dim);
+    padding: 48px 36px;
+    position: relative;
+    transition: var(--transition-smooth);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.pillar-top-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-secondary);
+    transition: var(--transition-smooth);
+}
+
+.pillar-card:hover {
+    border-color: rgba(236, 192, 151, 0.35);
+    box-shadow: 0 10px 30px rgba(5,5,5,0.9);
+}
+
+.pillar-card:hover .pillar-top-line {
+    width: 100%;
+}
+
+.pillar-icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(102, 0, 0, 0.2);
+    border: 1px solid rgba(102, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-secondary);
+    margin-bottom: 32px;
+    transition: var(--transition-fast);
+}
+
+.pillar-icon span {
+    font-size: 24px;
+}
+
+.pillar-card:hover .pillar-icon {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    transform: translateZ(20px);
+}
+
+.pillar-title {
+    font-family: var(--font-headline);
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    transition: var(--transition-fast);
+}
+
+.pillar-card:hover .pillar-title {
+    color: var(--color-secondary);
+    transform: translateZ(15px);
+}
+
+.pillar-subtitle {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--color-slate);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.pillar-desc {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(229, 226, 225, 0.7);
+    line-height: 1.7;
+    transition: var(--transition-fast);
+}
+
+.pillar-card:hover .pillar-desc {
+    color: var(--color-text-light);
+    transform: translateZ(10px);
+}
+
+/* --------------------------------------------------------------------------
+   11. Sezione 4: Merchandising & Lookbook (Slider orizzontale)
+   -------------------------------------------------------------------------- */
+.merch-section {
+    background-color: var(--color-surface);
+    border-top: 1px solid rgba(236, 192, 151, 0.05);
+    border-bottom: 1px solid rgba(236, 192, 151, 0.05);
+    padding-bottom: 80px;
+}
+
+.lookbook-slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 60px 0;
+    perspective: 1500px;
+}
+
+.lookbook-slider {
+    display: flex;
+    gap: 32px;
+    padding: 0 var(--margin-desktop);
+    width: max-content;
+    will-change: transform;
+    user-select: none;
+    -webkit-user-drag: none;
+    transform-style: preserve-3d;
+}
+
+.garment-card {
+    width: 380px;
+    background-color: #050505;
+    border: 1px solid var(--color-accent-dim);
+    position: relative;
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.4s;
+    transform-style: preserve-3d;
+}
+
+.garment-card:hover {
+    border-color: rgba(236, 192, 151, 0.45);
+    transform: translateY(-24px) scale(1.03);
+    box-shadow: 0 40px 80px rgba(5,5,5,0.95), 0 15px 35px rgba(236,192,151,0.15);
+}
+
+.garment-glare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(236, 192, 151, 0.18) 0%, rgba(255, 255, 255, 0.08) 30%, transparent 65%);
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 5;
+}
+
+.garment-card:hover .garment-glare {
+    opacity: 1;
+}
+
+.garment-img-holder {
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid var(--color-accent-dim);
+    transform-style: preserve-3d;
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.garment-card:hover .garment-img-holder {
+    transform: translateZ(15px);
+}
+
+.garment-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    -webkit-user-drag: none;
+}
+
+.garment-card:hover .garment-img {
+    transform: scale(1.06);
+}
+
+.garment-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: var(--transition-fast);
+    backdrop-filter: blur(4px);
+}
+
+.garment-card:hover .garment-overlay {
+    opacity: 1;
+}
+
+.view-details-btn {
+    font-family: var(--font-headline);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+    padding: 14px 28px;
+    background-color: transparent;
+    transition: var(--transition-fast);
+}
+
+.view-details-btn:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-bg);
+}
+
+.garment-info {
+    padding: 24px;
+    transform-style: preserve-3d;
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.garment-card:hover .garment-info {
+    transform: translateZ(25px);
+}
+
+.garment-category {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--color-slate);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.garment-title {
+    font-family: var(--font-headline);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--color-text-light);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.garment-price {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+
+.slider-hint {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-slate);
+    margin-top: 32px;
+}
+
+.slider-hint span {
+    font-size: 18px;
+}
+
+.hint-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+}
+
+@media (max-width: 768px) {
+    .lookbook-slider {
+        padding: 0 var(--margin-mobile);
+        gap: 16px;
+    }
+    .garment-card {
+        width: 290px;
+    }
+    .garment-img-holder {
+        height: 360px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   12. Modale Dettaglio Capo (Merch Modal)
+   -------------------------------------------------------------------------- */
+.garment-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.5s;
+}
+
+.garment-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.garment-modal-backdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(5, 5, 5, 0.92);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.garment-modal-content {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-secondary);
+    width: 90%;
+    max-width: 1100px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    z-index: 10002;
+    transform: scale(0.92);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 20px 60px rgba(5,5,5,0.95);
+}
+
+.garment-modal.active .garment-modal-content {
+    transform: scale(1);
+}
+
+.garment-modal-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    transition: var(--transition-fast);
+    z-index: 10;
+}
+
+.garment-modal-close span {
+    font-size: 28px;
+}
+
+.garment-modal-close:hover {
+    color: var(--color-secondary);
+    transform: rotate(90deg);
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-cols: 1fr 1.2fr;
+}
+
+.modal-gallery {
+    background-color: #050505;
+    border-right: 1px solid var(--color-accent-dim);
+}
+
+.modal-large-img {
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    display: block;
+}
+
+.modal-details {
+    padding: 64px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-item-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--color-slate);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.modal-item-title {
+    font-family: var(--font-headline);
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.modal-item-price {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-bottom: 24px;
+}
+
+.modal-item-desc {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(229, 226, 225, 0.8);
+    line-height: 1.8;
+    margin-bottom: 32px;
+}
+
+.modal-specifications {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+    background-color: rgba(5, 5, 5, 0.3);
+    padding: 20px;
+    border: 1px solid var(--color-accent-dim);
+}
+
+.spec-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+.spec-label {
+    font-weight: 700;
+    color: var(--color-slate);
+}
+
+.spec-val {
+    color: var(--color-text-light);
+}
+
+.modal-sizes {
+    margin-bottom: 36px;
+}
+
+.size-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--color-slate);
+    display: block;
+    margin-bottom: 16px;
+}
+
+.sizes-row {
+    display: flex;
+    gap: 12px;
+}
+
+.size-btn {
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    border: 1px solid var(--color-slate);
+    color: var(--color-text-light);
+    font-family: var(--font-headline);
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition-fast);
+}
+
+.size-btn:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+
+.size-btn.active {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-bg);
+}
+
+.modal-disclaimer {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    margin-top: 16px;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .modal-grid {
+        grid-template-cols: 1fr;
+    }
+    .modal-gallery {
+        border-right: none;
+        border-bottom: 1px solid var(--color-accent-dim);
+    }
+    .modal-large-img {
+        max-height: 380px;
+    }
+    .modal-details {
+        padding: 36px 24px;
+    }
+    .garment-modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   13. Sezione 5: Tone of Voice (Glitch Hover)
+   -------------------------------------------------------------------------- */
+.voice-section {
+    background-color: #050505;
+    border-bottom: 1px solid rgba(236, 192, 151, 0.05);
+}
+
+.voice-heading {
+    font-family: var(--font-headline);
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--color-text-light);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.voice-subheading {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--color-slate);
+    line-height: 1.8;
+}
+
+.voice-grid {
+    display: grid;
+    grid-template-cols: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 56px;
+}
+
+.voice-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-accent-dim);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+/* Laser-Glitch scanner beam */
+.voice-scanner-beam {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-secondary), transparent);
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.voice-card:hover {
+    border-color: rgba(236, 192, 151, 0.35);
+    background-color: rgba(15, 0, 0, 0.3);
+}
+
+.voice-card:hover .voice-scanner-beam {
+    opacity: 1;
+    animation: scannerBeamMove 2.5s infinite linear;
+}
+
+.voice-card-title {
+    font-family: var(--font-headline);
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--color-primary);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    transition: var(--transition-fast);
+}
+
+.voice-card:hover .voice-card-title {
+    color: var(--color-secondary);
+    text-shadow: 0 0 10px rgba(236, 192, 151, 0.15);
+}
+
+.voice-card-desc {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(229, 226, 225, 0.7);
+    line-height: 1.8;
+}
+
+/* --------------------------------------------------------------------------
+   14. Sezione 6: Contact & Command Gate (Luxury Form)
+   -------------------------------------------------------------------------- */
+.contact-section {
+    background-color: var(--color-surface);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-cols: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.contact-desc {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(229, 226, 225, 0.8);
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+.contact-info-block {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--color-secondary);
+}
+
+.info-row span {
+    font-size: 24px;
+}
+
+.info-val {
+    font-family: var(--font-headline);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--color-text-light);
+}
+
+.contact-form-wrapper {
+    background-color: #050505;
+    border: 1px solid var(--color-accent-dim);
+    padding: 56px 48px;
+    box-shadow: 0 15px 40px rgba(5,5,5,0.7);
+}
+
+.luxury-form {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.form-group {
+    position: relative;
+    width: 100%;
+}
+
+.form-input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--color-slate);
+    padding: 12px 0;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.form-textarea {
+    resize: none;
+}
+
+.form-select {
+    color: var(--color-slate);
+    /* Rimuovi freccia default su windows */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%255a5a5a' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.form-select:focus {
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%25ecc097' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+}
+
+.form-label {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--color-slate);
+    pointer-events: none;
+    transition: var(--transition-fast);
+}
+
+.form-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-secondary);
+    box-shadow: 0 0 5px var(--color-secondary);
+    transition: var(--transition-fast);
+}
+
+/* Animazione Input Focus */
+.form-input:focus {
+    border-bottom-color: transparent;
+}
+
+.form-input:focus ~ .form-line {
+    width: 100%;
+}
+
+.form-input:focus ~ .form-label,
+.form-input:not(:placeholder-shown) ~ .form-label {
+    top: -16px;
+    font-size: 0.7rem;
+    color: var(--color-secondary);
+}
+
+@media (max-width: 1024px) {
+    .contact-grid {
+        grid-template-cols: 1fr;
+        gap: 56px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-form-wrapper {
+        padding: 36px 20px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   15. Footer (Elite Grid)
+   -------------------------------------------------------------------------- */
+.main-footer {
+    background-color: #050505;
+    border-top: 1px solid rgba(236, 192, 151, 0.15);
+    padding: 80px 0 40px 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-cols: 1.5fr 1fr 1fr 1.5fr;
+    gap: 48px;
+    margin-bottom: 60px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-logo-img {
+    height: 36px;
+    width: auto;
+}
+
+.footer-logo-text {
+    font-family: var(--font-headline);
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--color-text-light);
+}
+
+.footer-brand-desc {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--color-secondary);
+    font-weight: 500;
+}
+
+.footer-links-title {
+    font-family: var(--font-headline);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--color-secondary);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+.footer-link {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-slate);
+    text-decoration: none;
+    margin-bottom: 12px;
+    transition: var(--transition-fast);
+}
+
+.footer-link:hover {
+    color: var(--color-secondary);
+    transform: translateX(4px);
+}
+
+.newsletter-desc {
+    font-size: 0.8rem;
+    color: rgba(229, 226, 225, 0.7);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.newsletter-form {
+    display: flex;
+    border-bottom: 1px solid var(--color-slate);
+}
+
+.newsletter-input {
+    flex-grow: 1;
+    background: none;
+    border: none;
+    padding: 10px 0;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    outline: none;
+}
+
+.newsletter-btn {
+    background: none;
+    border: none;
+    color: var(--color-slate);
+    padding: 0 10px;
+    transition: var(--transition-fast);
+}
+
+.newsletter-btn:hover {
+    color: var(--color-secondary);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(236, 192, 151, 0.08);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.footer-copy {
+    font-size: 0.75rem;
+    color: var(--color-slate);
+}
+
+.footer-meta {
+    font-family: var(--font-headline);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--color-secondary);
+}
+
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-cols: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-grid {
+        grid-template-cols: 1fr;
+        gap: 36px;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   16. Keyframe Animations
+   -------------------------------------------------------------------------- */
+@keyframes drawCircle {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes drawShield {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fadeInLetter {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeUpText {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scrollIndicatorMove {
+    0% {
+        top: -20px;
+    }
+    50% {
+        top: 60px;
+    }
+    100% {
+        top: 60px;
+    }
+}
+
+@keyframes shimmerEffect {
+    0% {
+        left: -150%;
+    }
+    100% {
+        left: 150%;
+    }
+}
+
+@keyframes scannerBeamMove {
+    0% {
+        top: -2%;
+    }
+    50% {
+        top: 102%;
+    }
+    100% {
+        top: 102%;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   17. Reveal Animations (Intersection Observer Class Hook)
+   -------------------------------------------------------------------------- */
+.reveal-fade, .reveal-slide-left, .reveal-slide-right, .reveal-fade-up {
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, opacity;
+}
+
+.reveal-slide-left {
+    transform: translateX(-40px);
+}
+
+.reveal-slide-right {
+    transform: translateX(40px);
+}
+
+.reveal-fade-up {
+    transform: translateY(40px);
+}
+
+.reveal-active {
+    opacity: 1;
+    transform: translate(0) skew(0);
+}
+
+/* ==========================================================================
+   18. Sottotitoli Olografici Reattivi all'Hover (Effetto Ologramma Glitch)
+   ========================================================================== */
+
+/* Elementi da nascondere e animare con effetto ologramma da sotto i titoli */
+.hero-subtitle,
+.pillar-subtitle,
+.pillar-desc,
+.voice-subheading,
+.voice-card-desc,
+.contact-desc {
+    opacity: 0 !important;
+    transform: translateY(35px) scale(0.98);
+    filter: blur(8px);
+    transition: opacity 0.7s cubic-bezier(0.19, 1, 0.22, 1), 
+                transform 0.7s cubic-bezier(0.19, 1, 0.22, 1), 
+                filter 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+    pointer-events: none;
+    position: relative;
+    text-shadow: 0 0 10px rgba(102, 0, 0, 0);
+}
+
+/* Scanner Laser Line per ciascun elemento olografico per un look premium */
+.hero-subtitle::after,
+.pillar-desc::after,
+.voice-subheading::after,
+.voice-card-desc::after,
+.contact-desc::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+                rgba(236, 192, 151, 0) 0%, 
+                rgba(236, 192, 151, 0.9) 20%, 
+                rgba(102, 0, 0, 1) 50%, 
+                rgba(236, 192, 151, 0.9) 80%, 
+                rgba(236, 192, 151, 0) 100%);
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 0 8px rgba(236, 192, 151, 0.7), 0 0 15px rgba(102, 0, 0, 0.9);
+    z-index: 5;
+}
+
+/* Innesco dell'effetto ologramma all'hover della sezione o della card specifica */
+.hero-section:hover .hero-subtitle,
+.pillar-card:hover .pillar-subtitle,
+.pillar-card:hover .pillar-desc,
+.voice-section:hover .voice-subheading,
+.voice-card:hover .voice-card-desc,
+.contact-section:hover .contact-desc {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+    pointer-events: auto;
+    animation: hologram-flicker-advanced 0.55s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+/* Attivazione della linea laser all'hover */
+.hero-section:hover .hero-subtitle::after,
+.pillar-card:hover .pillar-desc::after,
+.voice-section:hover .voice-subheading::after,
+.voice-card:hover .voice-card-desc::after,
+.contact-section:hover .contact-desc::after {
+    animation: hologram-scan-sweep 0.75s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+/* Animazione del laser che scansiona il testo dall'alto verso il basso */
+@keyframes hologram-scan-sweep {
+    0% {
+        top: -15px;
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        top: calc(100% + 15px);
+        opacity: 0;
+    }
+}
+
+/* Animazione Glitch/Flicker Olografica con Aberrazione Cromatica RGB-Shift */
+@keyframes hologram-flicker-advanced {
+    0% {
+        opacity: 0;
+        filter: blur(12px) brightness(1.8) contrast(1.5);
+        text-shadow: -3px -1.5px 0 rgba(255, 0, 0, 0.8), 3px 1.5px 0 rgba(236, 192, 151, 0.8), 0 0 20px rgba(236, 192, 151, 0.8);
+        transform: translateY(35px) skewX(-6deg);
+    }
+    10% {
+        opacity: 0.75;
+        filter: blur(4px) brightness(1.3);
+        text-shadow: 2px 2px 0 rgba(255, 0, 0, 0.7), -2px -2px 0 rgba(236, 192, 151, 0.7), 0 0 10px rgba(236, 192, 151, 0.6);
+        transform: translateY(20px) skewX(5deg);
+    }
+    20% {
+        opacity: 0.15;
+        filter: blur(6px) brightness(0.7);
+        text-shadow: none;
+        transform: translateY(25px) skewX(-4deg);
+    }
+    35% {
+        opacity: 0.9;
+        filter: blur(2px) brightness(1.4);
+        text-shadow: -1.5px 0.5px 0 rgba(255, 0, 0, 0.6), 1.5px -0.5px 0 rgba(236, 192, 151, 0.6), 0 0 12px rgba(236, 192, 151, 0.6);
+        transform: translateY(10px) skewX(2deg);
+    }
+    50% {
+        opacity: 0.4;
+        filter: blur(3px) brightness(0.8);
+        text-shadow: none;
+        transform: translateY(12px) skewX(-2deg);
+    }
+    65% {
+        opacity: 0.95;
+        filter: blur(1px) brightness(1.2);
+        text-shadow: 1px -1px 0 rgba(255, 0, 0, 0.4), -1px 1px 0 rgba(236, 192, 151, 0.4), 0 0 8px rgba(236, 192, 151, 0.4);
+        transform: translateY(4px) skewX(1deg);
+    }
+    80% {
+        opacity: 0.6;
+        filter: blur(2px) brightness(0.9);
+        text-shadow: none;
+        transform: translateY(6px);
+    }
+    90% {
+        opacity: 0.98;
+        filter: blur(0.5px) brightness(1.1);
+        text-shadow: 0.5px -0.5px 0 rgba(255, 0, 0, 0.2), -0.5px 0.5px 0 rgba(236, 192, 151, 0.2), 0 0 6px rgba(236, 192, 151, 0.3);
+        transform: translateY(1px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0) brightness(1);
+        text-shadow: 0 0 4px rgba(236, 192, 151, 0.2);
+        transform: translateY(0) skewX(0);
+    }
+}
+
+/* Ripristino sui dispositivi touch o schermi mobili per garantire l'accessibilità del testo */
+@media (max-width: 1024px), (hover: none) {
+    .hero-subtitle,
+    .pillar-subtitle,
+    .pillar-desc,
+    .voice-subheading,
+    .voice-card-desc,
+    .contact-desc {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        pointer-events: auto !important;
+        text-shadow: none !important;
+        animation: none !important;
+    }
+    
+    .hero-subtitle::after,
+    .pillar-desc::after,
+    .voice-subheading::after,
+    .voice-card-desc::after,
+    .contact-desc::after {
+        display: none !important;
+    }
+}

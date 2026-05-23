@@ -1,0 +1,474 @@
+<!DOCTYPE html><html class="dark" lang="it"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>EARLIEST - Direzione Creativa Ufficiale</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts: Bodoni Moda (closest to Cinzel for Headlines based on config) & Montserrat -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-container": "#d7ad85",
+                      "inverse-primary": "#aa3527",
+                      "on-error": "#690005",
+                      "primary-fixed-dim": "#ffb4a8",
+                      "tertiary": "#bcc3ff",
+                      "error-container": "#93000a",
+                      "inverse-on-surface": "#313030",
+                      "surface-dim": "#131313",
+                      "on-error-container": "#ffdad6",
+                      "on-primary": "#680201",
+                      "secondary-fixed-dim": "#eabe95",
+                      "primary-fixed": "#ffdad4",
+                      "primary-container": "#660000",
+                      "on-primary-container": "#f56b58",
+                      "on-tertiary-fixed": "#000d60",
+                      "tertiary-fixed-dim": "#bcc3ff",
+                      "secondary-fixed": "#ffdcbe",
+                      "on-background": "#e5e2e1",
+                      "background": "#131313",
+                      "surface-bright": "#3a3939",
+                      "surface-container-high": "#2a2a2a",
+                      "outline-variant": "#58413e",
+                      "on-tertiary-fixed-variant": "#2738ab",
+                      "secondary": "#eabe95",
+                      "surface": "#131313",
+                      "surface-variant": "#353534",
+                      "tertiary-container": "#001994",
+                      "surface-container-low": "#1c1b1b",
+                      "surface-container-highest": "#353534",
+                      "on-secondary-fixed": "#2c1600",
+                      "primary": "#ffb4a8",
+                      "on-primary-fixed": "#410000",
+                      "secondary-container": "#5f4021",
+                      "on-secondary": "#452a0d",
+                      "surface-container": "#201f1f",
+                      "error": "#ffb4ab",
+                      "surface-tint": "#ffb4a8",
+                      "on-primary-fixed-variant": "#891d12",
+                      "outline": "#a78a86",
+                      "on-tertiary-container": "#7d8dff",
+                      "inverse-surface": "#e5e2e1",
+                      "on-surface-variant": "#dfbfba",
+                      "on-tertiary": "#031b95",
+                      "tertiary-fixed": "#dfe0ff",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-surface": "#e5e2e1",
+                      "on-secondary-fixed-variant": "#5f4021"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0rem", // Enforcing 90-degree corners overriding config slightly for strict adherence to "solo angoli a 90 gradi" while keeping the token structure.
+                      "lg": "0rem",
+                      "xl": "0rem",
+                      "full": "0rem"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "gutter": "24px",
+                      "container-max-width": "1200px",
+                      "margin-desktop": "80px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "Montserrat"
+                      ],
+                      "headline-xl-mobile": [
+                              "Bodoni Moda"
+                      ],
+                      "headline-xl": [
+                              "Bodoni Moda"
+                      ],
+                      "headline-md": [
+                              "Bodoni Moda"
+                      ],
+                      "body-lg": [
+                              "Montserrat"
+                      ],
+                      "headline-lg": [
+                              "Bodoni Moda"
+                      ],
+                      "body-md": [
+                              "Montserrat"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.2em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-xl-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-xl": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "letterSpacing": "0.03em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505; /* Strict adherence to the requested #050505, overriding the tailwind background if needed, but we'll use inline styles/classes too */
+            color: #ECC097; /* Default text color as requested */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Custom scrollbar for an editorial feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #660000; 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ECC097; 
+        }
+        
+        .border-gold {
+            border-color: #ECC097;
+        }
+        .bg-blood {
+            background-color: #660000;
+        }
+        .bg-obsidian {
+            background-color: #050505;
+        }
+        .bg-crimson-black {
+            background-color: #0F0000;
+        }
+        .text-gold {
+            color: #ECC097;
+        }
+    </style>
+</head>
+<body class="bg-obsidian text-gold min-h-screen flex flex-col md:hidden"> <!-- Mobile only as requested: "Direzione Creativa Mobile" -->
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface dark:bg-surface border-b border-secondary/20">
+<button class="text-secondary dark:text-secondary hover:text-secondary transition-colors focus:outline-none focus:opacity-80">
+<span class="material-symbols-outlined font-variation-settings: 'FILL' 1;">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-secondary dark:text-secondary uppercase tracking-[0.2em] font-extrabold text-gold">EARLIEST</h1>
+<button class="text-secondary dark:text-secondary hover:text-secondary transition-colors focus:outline-none focus:opacity-80">
+<span class="material-symbols-outlined font-variation-settings: 'FILL' 1;">more_vert</span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow pt-16 pb-20 px-margin-mobile flex flex-col gap-16">
+<!-- 1. Copertina -->
+<section class="min-h-[60vh] flex flex-col items-center justify-center text-center gap-12 pt-8 min-h-fit" id="copertina" style="padding-top: 2rem; padding-bottom: 0;">
+<div class="w-64 h-auto flex items-center justify-center">
+<img alt="EARLIEST Logo Crest" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uhHhchoDk-KwWKDa4tvv6phlMfyPAuudgM4JkiWbfbJgNs4SmcEeEYUsFulzuR72rumnjzsAg5Q6kLGWpFsKSHC-dCs9S9iXRLqdD2SgB9xQuULi_oNO_rX81USSFw5u22pZX0zG6q9UlMWZaJx78Wa6lYXC_EHPuhI-lbdzNrMevVcuq4fesFbU5ANRSFqthpwgYxvFGN9jZFIMZSHexhWSH2ozYo4__iNSOXe3FVkkNIR5FLfvegNwLPDbyGpicKFhz-98bQESw">
+</div>
+<p class="font-label-caps text-label-caps text-gold max-w-xs mx-auto border-t border-gold pt-6">
+                THE NEW ELITE. ESTABLISHED FOR THE FUTURE.
+            </p>
+</section>
+<!-- 2. Manifesto -->
+
+<!-- 3. Pilastri del Comando -->
+<section class="flex flex-col gap-8" id="pilastri">
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-gold">account_balance</span>
+<h3 class="font-headline-md text-headline-md text-gold uppercase tracking-widest">Pilastri del Comando</h3>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<!-- Card 1 -->
+<div class="bg-crimson-black border border-gold p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start border-b border-gold/30 pb-4">
+<span class="font-label-caps text-label-caps text-secondary">01</span>
+<span class="material-symbols-outlined text-secondary">gavel</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-white">Imperial Vanguard</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">La prima linea dell'innovazione identitaria. Non seguiamo le tendenze, le dettiamo con rigore militare.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-crimson-black border border-gold p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start border-b border-gold/30 pb-4">
+<span class="font-label-caps text-label-caps text-secondary">02</span>
+<span class="material-symbols-outlined text-secondary">diamond</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-white">Sovereign Style</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Estetica assoluta. Una presenza visiva che non ammette compromessi né esitazioni.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-crimson-black border border-gold p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start border-b border-gold/30 pb-4">
+<span class="font-label-caps text-label-caps text-secondary">03</span>
+<span class="material-symbols-outlined text-secondary">verified</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-white">Unmatched Quality</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">L'eccellenza come standard minimo. Ogni dettaglio è forgiato per resistere all'usura del tempo.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-crimson-black border border-gold p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start border-b border-gold/30 pb-4">
+<span class="font-label-caps text-label-caps text-secondary">04</span>
+<span class="material-symbols-outlined text-secondary">military_tech</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-white">Command Presence</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Dominio dello spazio digitale e fisico. La nostra firma visiva comanda attenzione immediata.</p>
+</div>
+</div>
+</section><section class="flex flex-col gap-8" id="servizi-comando">
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-gold">military_tech</span>
+<h3 class="font-headline-md text-headline-md text-gold uppercase tracking-widest">SERVIZI DI COMANDO</h3>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<!-- Card 1: IDENTITÀ & DESIGN -->
+<div class="bg-crimson-black border border-gold p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start border-b border-gold/30 pb-4">
+<span class="font-label-caps text-label-caps text-gold uppercase tracking-widest">01. IDENTITÀ &amp; DESIGN</span>
+<span class="material-symbols-outlined text-gold">draw</span>
+</div>
+<ul class="flex flex-col gap-2">
+<li class="font-body-md text-on-surface-variant flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blood"></span>Creazione Brand Identity</li>
+<li class="font-body-md text-on-surface-variant flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blood"></span>Logo Design</li>
+<li class="font-body-md text-on-surface-variant flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blood"></span>Vanguard Design</li>
+<li class="font-body-md text-on-surface-variant flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blood"></span>Landing Page</li>
+<li class="font-body-md text-on-surface-variant flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blood"></span>Sviluppo Siti Web</li>
+</ul>
+</div>
+<!-- Card 2: PRODUZIONE & CONTENUTI -->
+<div class="bg-crimson-black border border-gold p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start border-b border-gold/30 pb-4">
+<span class="font-label-caps text-label-caps text-gold uppercase tracking-widest">02. PRODUZIONE &amp; CONTENUTI</span>
+<span class="material-symbols-outlined text-gold">video_camera_back</span>
+</div>
+<ul class="flex flex-col gap-2">
+<li class="font-body-md text-on-surface-variant flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blood"></span>Scrittura Reel</li>
+<li class="font-body-md text-on-surface-variant flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blood"></span>Ripresa Video &amp; Montaggio</li>
+<li class="font-body-md text-on-surface-variant flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blood"></span>Shooting Fotografico</li>
+<li class="font-body-md text-on-surface-variant flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blood"></span>Ricerca Trend &amp; Pubblicazione</li>
+<li class="font-body-md text-on-surface-variant flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blood"></span>Creazione Grafiche</li>
+</ul>
+</div>
+<!-- Card 3: STRATEGIA & PERFORMANCE -->
+<div class="bg-crimson-black border border-gold p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start border-b border-gold/30 pb-4">
+<span class="font-label-caps text-label-caps text-gold uppercase tracking-widest">03. STRATEGIA &amp; PERFORMANCE</span>
+<span class="material-symbols-outlined text-gold">insights</span>
+</div>
+<ul class="flex flex-col gap-2">
+<li class="font-body-md text-on-surface-variant flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blood"></span>Lead Generation</li>
+<li class="font-body-md text-on-surface-variant flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blood"></span>Posizionamento</li>
+<li class="font-body-md text-on-surface-variant flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blood"></span>Campagne Ads (Meta &amp; Google)</li>
+<li class="font-body-md text-on-surface-variant flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blood"></span>Studio Marketing &amp; Algoritmi</li>
+<li class="font-body-md text-on-surface-variant flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blood"></span>Ottimizzazione SEO</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- 4. Palette 'Blood & Obsidian' -->
+<section class="flex flex-col gap-8" id="palette">
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-gold">palette</span>
+<h3 class="font-headline-md text-headline-md text-gold uppercase tracking-widest">Blood &amp; Obsidian</h3>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<div class="h-32 border border-gold bg-[#660000]"></div>
+<div class="flex justify-between items-center border-b border-gold/30 pb-1">
+<span class="font-label-caps text-label-caps text-white">BLOOD HERITAGE</span>
+<span class="font-body-md text-body-md text-secondary">#660000</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="h-32 border border-gold bg-[#ECC097]"></div>
+<div class="flex justify-between items-center border-b border-gold/30 pb-1">
+<span class="font-label-caps text-label-caps text-black">CHAMPAGNE GOLD</span>
+<span class="font-body-md text-body-md text-secondary">#ECC097</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="h-32 border border-gold bg-[#050505]"></div>
+<div class="flex justify-between items-center border-b border-gold/30 pb-1">
+<span class="font-label-caps text-label-caps text-white">OBSIDIAN BLACK</span>
+<span class="font-body-md text-body-md text-secondary">#050505</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="h-32 border border-gold bg-[#0F0000]"></div>
+<div class="flex justify-between items-center border-b border-gold/30 pb-1">
+<span class="font-label-caps text-label-caps text-white">CRIMSON BLACK</span>
+<span class="font-body-md text-body-md text-secondary">#0F0000</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Tipografia -->
+<section class="flex flex-col gap-8" id="tipografia">
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-gold">text_fields</span>
+<h3 class="font-headline-md text-headline-md text-gold uppercase tracking-widest">Tipografia</h3>
+</div>
+<div class="bg-crimson-black border border-gold p-6 flex flex-col gap-8">
+<div class="flex flex-col gap-2 border-b border-gold/30 pb-4">
+<span class="font-label-caps text-label-caps text-secondary">TITOLI (BODONI MODA - SOSTITUTO CINZEL)</span>
+<h2 class="font-headline-xl-mobile text-headline-xl-mobile text-white uppercase">A B C D E F G</h2>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-white uppercase">a b c d e f g</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">1 2 3 4 5 6 7 8 9 0 &amp; @ # %</p>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-secondary">CORPO (MONTSERRAT)</span>
+<p class="font-body-lg text-body-lg text-white">L'autorità non si sussurra, si dichiara. Utilizziamo pesi forti per affermare la nostra presenza e pesi leggeri solo per dettagli tecnici.</p>
+<p class="font-label-caps text-label-caps text-gold mt-4 uppercase">Testo in maiuscoletto per meta-informazioni.</p>
+</div>
+</div>
+</section>
+<!-- 6. Tono di Voce -->
+<section class="flex flex-col gap-8" id="tono">
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-gold">record_voice_over</span>
+<h3 class="font-headline-md text-headline-md text-gold uppercase tracking-widest">Tono di Voce</h3>
+</div>
+<div class="flex flex-col gap-1 border border-gold bg-crimson-black">
+<div class="p-4 border-b border-gold/30 flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1">arrow_forward</span>
+<div>
+<h4 class="font-headline-md text-headline-md text-white uppercase">Diretto</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Niente giri di parole. Arriviamo dritti al punto.</p>
+</div>
+</div>
+<div class="p-4 border-b border-gold/30 flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1">gavel</span>
+<div>
+<h4 class="font-headline-md text-headline-md text-white uppercase">Serio</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Il nostro lavoro è un'istituzione, trattato con il massimo rispetto.</p>
+</div>
+</div>
+<div class="p-4 border-b border-gold/30 flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1">bolt</span>
+<div>
+<h4 class="font-headline-md text-headline-md text-white uppercase">Deciso</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Affermazioni assolute. Nessun condizionale, solo certezze.</p>
+</div>
+</div>
+<div class="p-4 flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1">diamond</span>
+<div>
+<h4 class="font-headline-md text-headline-md text-white uppercase">Elegante</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Un'aggressività misurata, vestita con una forma impeccabile.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. Applicazioni -->
+<section class="flex flex-col gap-8 pb-12" id="applicazioni">
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-gold">imagesmode</span>
+<h3 class="font-headline-md text-headline-md text-gold uppercase tracking-widest">Applicazioni</h3>
+</div>
+<div class="flex flex-col gap-6">
+<!-- Stationery Mockup -->
+<div class="border border-gold p-2 bg-crimson-black relative overflow-hidden group">
+<div class="absolute inset-0 bg-blood opacity-0 group-hover:opacity-20 transition-opacity z-10 pointer-events-none"></div>
+<img alt="Mockup visivo di stationery e griglia Instagram" class="w-full h-auto object-cover grayscale contrast-125 filter mix-blend-luminosity opacity-80 border border-gold/50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbGIysBZ2wqWTsdkqixrURkd1LlxzTNanRiTabhwzSOtfJwDKJAKe30dOwd3ToixfumAKUNVldSnMmWa5R9_sXFuxB3Kb7F6VCcLu-tgi3Vv4wdy52HqIfDwkq0HdBiHjQBIpxvSxYrNc22qUG7qYWiRD--EnRAaw3HxgBF2JQmcrHqya6cdOp7OR5klpzDkFpRs1GCoAbIs4BkCw0HLlDjyvyk_xQpdRTbfezFfZJtjR7hijjIsjJCfCpmH2M0AKvbaPBC-XrsnA">
+<div class="p-4 flex justify-between items-center border-t border-gold/30 mt-2">
+<span class="font-label-caps text-label-caps text-white">STATIONERY &amp; GRID</span>
+<span class="material-symbols-outlined text-secondary">open_in_new</span>
+</div>
+</div>
+<!-- Call to Action Button -->
+<button class="w-full py-4 bg-blood text-gold font-label-caps text-label-caps uppercase border border-blood hover:bg-obsidian hover:text-white transition-colors flex items-center justify-center gap-2">
+                    Scarica Assets Ufficiali
+                    <span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-20 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-secondary/20">
+<!-- Manifesto (Active semantic match) -->
+<a aria-label="Manifesto" class="flex flex-col items-center justify-center text-primary border-t-2 border-primary pt-2 scale-95 transition-transform" href="#manifesto">
+<span class="material-symbols-outlined font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-label-caps text-label-caps mt-1">MANIFESTO</span>
+</a>
+<!-- Pillars -->
+<a aria-label="Pillars" class="flex flex-col items-center justify-center text-on-surface-variant pt-2 hover:bg-secondary-container/10 transition-colors" href="#pilastri">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-label-caps text-label-caps mt-1">PILLARS</span>
+</a>
+<!-- Visuals -->
+<a aria-label="Visuals" class="flex flex-col items-center justify-center text-on-surface-variant pt-2 hover:bg-secondary-container/10 transition-colors" href="#palette">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-caps text-label-caps mt-1">VISUALS</span>
+</a>
+<!-- Archive -->
+<a aria-label="Archive" class="flex flex-col items-center justify-center text-on-surface-variant pt-2 hover:bg-secondary-container/10 transition-colors" href="#applicazioni">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-caps text-label-caps mt-1">ARCHIVE</span>
+</a>
+</nav>
+<!-- Support for safe area on mobile (iOS) -->
+<style>
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+
+
+
+
+
+
+</body></html>

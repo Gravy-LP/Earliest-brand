@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EARLIEST | Direzione Creativa & Agenzia di Comunicazione</title>
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="EARLIEST è un'agenzia d'élite di direzione creativa e comunicazione fondata sul principio dell'Urban Aristocracy. Uniamo l'heritage storico all'avanguardia dello stile per brand sovrani.">
+    <meta name="keywords" content="Direzione Creativa, Brand Identity, Agenzia di Comunicazione, Abbigliamento di Lusso, Urban Aristocracy, Earliest Abbigliamento">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Custom JS -->
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <!-- Canvas Atmosferico -->
+    <canvas id="atmosphereCanvas"></canvas>
+
+    <!-- Cursore Luxury Custom -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!-- Indicatore Progresso di Scorrimento -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-crest-wrapper">
+                <!-- SVG Crest Path Outline Animation -->
+                <svg class="preloader-svg" viewBox="0 0 100 100" width="120" height="120">
+                    <circle cx="50" cy="50" r="45" stroke="#ecc097" stroke-width="1.5" fill="none" class="circle-path" />
+                    <path d="M50 25 L65 40 L65 65 L50 80 L35 65 L35 40 Z" stroke="#660000" stroke-width="2" fill="none" class="shield-path" />
+                    <text x="50" y="58" font-family="'Syne', sans-serif" font-size="22" font-weight="800" fill="#ecc097" text-anchor="middle" class="letter-path">E</text>
+                </svg>
+            </div>
+            <h2 class="preloader-title">EARLIEST</h2>
+            <div class="preloader-tagline">LA NUOVA ÉLITE</div>
+        </div>
+    </div>
+
+    <!-- Barra di Navigazione Principale -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo-area hover-trigger" id="navLogo">
+                <img src="assets/logo/logo_crest.png" alt="EARLIEST Crest" class="logo-image">
+                <span class="logo-text">EARLIEST</span>
+            </a>
+            
+            <nav class="desktop-nav">
+                <a href="#services" class="nav-link hover-trigger">Servizi</a>
+                <a href="#pillars" class="nav-link hover-trigger">Pilastri</a>
+                <a href="#voice" class="nav-link hover-trigger">Tono di Voce</a>
+                <a href="#contact" class="nav-link hover-trigger">Contatti</a>
+                <a href="#merch" class="nav-link hover-trigger">Collezione</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="nav-toggle hover-trigger" id="menuToggle" aria-label="Attiva Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Mobile Laterale -->
+    <div class="side-menu" id="sideMenu">
+        <div class="side-menu-container">
+            <button class="close-menu hover-trigger" id="closeMenu">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="side-menu-links">
+                <a href="#services" class="side-link">SERVIZI</a>
+                <a href="#pillars" class="side-link">I PILASTRI</a>
+                <a href="#voice" class="side-link">TONO DI VOCE</a>
+                <a href="#contact" class="side-link">CONTATTI</a>
+                <a href="#merch" class="side-link">COLLEZIONE</a>
+            </div>
+            <div class="side-menu-footer">
+                <div class="side-footer-tagline">FONDATO PER IL FUTURO.</div>
+                <div class="side-footer-copy">© 2026 EARLIEST. TUTTI I DIRITTI RISERVATI.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sezione Hero -->
+    <section class="hero-section" id="hero">
+        <div class="hero-bg-wrapper">
+            <div class="hero-overlay"></div>
+            <!-- Parallax Back Image from Shooting -->
+            <img src="assets/shooting/model_leaning_front.jpg" alt="EARLIEST Urban Aristocracy Campagna" class="hero-bg-img" id="heroBg">
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge reveal-fade">FONDATO NEL 1923</div>
+            <h1 class="hero-title reveal-fade">
+                <span class="title-line">DIREZIONE</span>
+                <span class="title-line text-accent">CREATIVA</span>
+            </h1>
+            <p class="hero-subtitle reveal-fade">
+                L'identità è un territorio ostile. Noi lo dominiamo. Progettiamo il futuro della nuova élite attraverso il rigore visivo e l'avanguardia metropolitana.
+            </p>
+            <div class="hero-actions reveal-fade">
+                <a href="#services" class="btn btn-primary hover-trigger">
+                    <span>SERVIZI</span>
+                    <span class="material-symbols-outlined">arrow_right_alt</span>
+                </a>
+                <a href="#merch" class="btn btn-ghost hover-trigger">
+                    <span>COLLEZIONE CAPI</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero-scroll-indicator">
+            <span class="scroll-text">SCORRI</span>
+            <div class="scroll-line-wrapper">
+                <div class="scroll-line"></div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Sezione 2: Servizi di Comando -->
+    <section class="services-section" id="services">
+        <div class="section-container">
+            <div class="section-header reveal-fade">
+                <div class="section-tag text-center">COMPETENZE</div>
+                <h2 class="section-title text-center">SERVIZI</h2>
+                <div class="divider-line mx-auto"></div>
+            </div>
+            
+            <div class="services-monument-grid">
+                <!-- Servizio 01 -->
+                <div class="service-monument-card hover-tilt reveal-fade-up">
+                    <div class="service-card-scanner"></div>
+                    <div class="service-card-header">
+                        <span class="service-card-num">01</span>
+                        <h3 class="service-card-title">BRAND & IDENTITY</h3>
+                    </div>
+                    <div class="service-card-divider"></div>
+                    <ul class="service-bullets-list">
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span class="bullet-text">Linee guida brand identity</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span class="bullet-text">Logo / Crest</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span class="bullet-text">Vanguard Strategy</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span class="bullet-text">Font di comando</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span class="bullet-text">Archetipo di voce</span>
+                        </li>
+                    </ul>
+                    <div class="service-card-footer">
+                        <button class="btn btn-ghost btn-full hover-trigger commission-btn" data-service="brand_identity">
+                            <span>COMMISSIONA SERVIZIO</span>
+                            <span class="material-symbols-outlined">arrow_right_alt</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Servizio 02 -->
+                <div class="service-monument-card hover-tilt reveal-fade-up" style="animation-delay: 0.1s;">
+                    <div class="service-card-scanner"></div>
+                    <div class="service-card-header">
+                        <span class="service-card-num">02</span>
+                        <h3 class="service-card-title">STRATEGIA, CONTENUTI & LEAD GENERATION</h3>
+                    </div>
+                    <div class="service-card-divider"></div>
+                    <ul class="service-bullets-list">
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span class="bullet-text">Sistemi di Lead Generation d'Élite</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span class="bullet-text">Produzione Contenuti a 360° (Foto, Video, Editoriali)</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span class="bullet-text">Posizionamento & Distribuzione d'Avanguardia</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span class="bullet-text">Canali editoriali & PR di Comando</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span class="bullet-text">Copywriting e Tono di Voce Sovrano</span>
+                        </li>
+                    </ul>
+                    <div class="service-card-footer">
+                        <button class="btn btn-ghost btn-full hover-trigger commission-btn" data-service="strategy_lead_gen">
+                            <span>COMMISSIONA SERVIZIO</span>
+                            <span class="material-symbols-outlined">arrow_right_alt</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Servizio 03 -->
+                <div class="service-monument-card hover-tilt reveal-fade-up" style="animation-delay: 0.2s;">
+                    <div class="service-card-scanner"></div>
+                    <div class="service-card-header">
+                        <span class="service-card-num">03</span>
+                        <h3 class="service-card-title">FASHION & MERCHANDISING</h3>
+                    </div>
+                    <div class="service-card-divider"></div>
+                    <ul class="service-bullets-list">
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span class="bullet-text">Linee Creative & Apparel Design</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span class="bullet-text">Selezione Tessuti Premium (450 GSM)</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span class="bullet-text">Capi d'archivio (Hoodie / Crewneck)</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span class="bullet-text">Studio di Vestibilità & Parametri Sartoriali</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span class="bullet-text">Cartellini e packaging personalizzato</span>
+                        </li>
+                    </ul>
+                    <div class="service-card-footer">
+                        <button class="btn btn-ghost btn-full hover-trigger commission-btn" data-service="fashion_merch">
+                            <span>COMMISSIONA SERVIZIO</span>
+                            <span class="material-symbols-outlined">arrow_right_alt</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione 3: Pilastri del Comando -->
+    <section class="pillars-section" id="pillars">
+        <div class="section-container">
+            <div class="section-header reveal-fade">
+                <div class="section-tag text-center">FONDAMENTA</div>
+                <h2 class="section-title text-center">I NOSTRI PILASTRI</h2>
+                <div class="divider-line mx-auto"></div>
+            </div>
+            
+            <div class="pillars-grid">
+                <!-- Pillar Card 1 -->
+                <div class="pillar-card hover-tilt reveal-fade-up">
+                    <div class="pillar-top-line"></div>
+                    <div class="pillar-icon">
+                        <span class="material-symbols-outlined">gavel</span>
+                    </div>
+                    <h3 class="pillar-title">Supremazia Estetica</h3>
+                    <div class="pillar-subtitle">IL RIGORE DEL DESIGN</div>
+                    <p class="pillar-desc">
+                        Potenza cruda e geometrie a 90°. Un'estetica affilata che si impone in silenzio. Nessun compromesso visivo.
+                    </p>
+                </div>
+
+                <!-- Pillar Card 2 -->
+                <div class="pillar-card hover-tilt reveal-fade-up" style="animation-delay: 0.1s;">
+                    <div class="pillar-top-line"></div>
+                    <div class="pillar-icon">
+                        <span class="material-symbols-outlined">shield</span>
+                    </div>
+                    <h3 class="pillar-title">Status Metropolitano</h3>
+                    <div class="pillar-subtitle">ARISTOCRAZIA URBANA</div>
+                    <p class="pillar-desc">
+                        La ridefinizione assoluta dello status metropolitano. Presenza monumentale ed esclusiva in ogni contesto.
+                    </p>
+                </div>
+
+                <!-- Pillar Card 3 -->
+                <div class="pillar-card hover-tilt reveal-fade-up" style="animation-delay: 0.2s;">
+                    <div class="pillar-top-line"></div>
+                    <div class="pillar-icon">
+                        <span class="material-symbols-outlined">workspace_premium</span>
+                    </div>
+                    <h3 class="pillar-title">Rigore Sartoriale</h3>
+                    <div class="pillar-subtitle">ECCELLENZA TECNICA</div>
+                    <p class="pillar-desc">
+                        Tessuti premium da 450 GSM e cuciture a contrasto spessorate. Capi d'archivio strutturati per durare ed imporsi.
+                    </p>
+                </div>
+
+                <!-- Pillar Card 4 -->
+                <div class="pillar-card hover-tilt reveal-fade-up" style="animation-delay: 0.3s;">
+                    <div class="pillar-top-line"></div>
+                    <div class="pillar-icon">
+                        <span class="material-symbols-outlined">military_tech</span>
+                    </div>
+                    <h3 class="pillar-title">Impatto Reale</h3>
+                    <div class="pillar-subtitle">RISULTATI CONCRETI</div>
+                    <p class="pillar-desc">
+                        Lead generation d'élite e produzione contenuti integrata a 360°. Generiamo conversioni matematiche, zero metriche di vanità.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Sezione 5: Tone of Voice -->
+    <section class="voice-section" id="voice">
+        <div class="section-container">
+            <div class="section-header reveal-fade">
+                <div class="section-tag text-center">IDENTITÀ STRATEGICA</div>
+                <h2 class="section-title text-center">TONO DI VOCE</h2>
+                <div class="divider-line mx-auto"></div>
+                <h3 class="voice-heading text-center">LA VOCE IMPLACABILE</h3>
+                <p class="voice-subheading text-center max-w-2xl mx-auto">
+                    Nessun romanticismo eroico o giri di parole. Comunichiamo in modo ultra-diretto, crudo e minimale. Pochissime parole, massimo impatto.
+                </p>
+            </div>
+
+            <div class="voice-grid">
+                <!-- Voice Card 1 -->
+                <div class="voice-card hover-tilt reveal-fade-up">
+                    <div class="voice-scanner-beam"></div>
+                    <h4 class="voice-card-title">DIRETTO</h4>
+                    <p class="voice-card-desc">
+                        Poche parole. Massimo peso concettuale.
+                    </p>
+                </div>
+
+                <!-- Voice Card 2 -->
+                <div class="voice-card hover-tilt reveal-fade-up" style="animation-delay: 0.1s;">
+                    <div class="voice-scanner-beam"></div>
+                    <h4 class="voice-card-title">IMPLACABILE</h4>
+                    <p class="voice-card-desc">
+                        Nessuna giustificazione. Solo forza e chiarezza assoluta.
+                    </p>
+                </div>
+
+                <!-- Voice Card 3 -->
+                <div class="voice-card hover-tilt reveal-fade-up" style="animation-delay: 0.2s;">
+                    <div class="voice-scanner-beam"></div>
+                    <h4 class="voice-card-title">GEOMETRICO</h4>
+                    <p class="voice-card-desc">
+                        Precisione matematica ed ordine spaziale.
+                    </p>
+                </div>
+
+                <!-- Voice Card 4 -->
+                <div class="voice-card hover-tilt reveal-fade-up" style="animation-delay: 0.3s;">
+                    <div class="voice-scanner-beam"></div>
+                    <h4 class="voice-card-title">SILENZIOSO</h4>
+                    <p class="voice-card-desc">
+                        Un lusso d'élite che si impone per presenza visiva.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione 6: Contatti (Command Gate) -->
+    <section class="contact-section" id="contact">
+        <div class="section-container">
+            <div class="contact-grid">
+                <div class="contact-text reveal-slide-left">
+                    <div class="section-tag">CONTATTI</div>
+                    <h2 class="section-title">ACCESSO</h2>
+                    <div class="divider-line"></div>
+                    <p class="contact-desc">
+                        Selezioniamo esclusivamente brand d'élite, artisti visionari ed entità pronte a definire la propria supremazia sul mercato globale.
+                    </p>
+                    <p class="contact-desc">
+                        La nostra capacità produttiva è limitata. Accediamo solo a progetti ad alto valore.
+                    </p>
+                    
+                    <div class="contact-info-block">
+                        <div class="info-row">
+                            <span class="material-symbols-outlined">location_on</span>
+                            <span class="info-val">MILANO | ZONA ARISTOCRATICA</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="material-symbols-outlined">mail</span>
+                            <span class="info-val">CONTACT@EARLIEST.COM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper reveal-slide-right">
+                    <form class="luxury-form" id="commandForm" onsubmit="event.preventDefault();">
+                        <div class="form-group">
+                            <input type="text" id="formName" required placeholder=" " class="form-input hover-trigger">
+                            <label for="formName" class="form-label">NOME BRAND / ENTIÀ</label>
+                            <span class="form-line"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" id="formEmail" required placeholder=" " class="form-input hover-trigger">
+                            <label for="formEmail" class="form-label">EMAIL</label>
+                            <span class="form-line"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <select id="formService" class="form-input form-select hover-trigger">
+                                <option value="" disabled selected hidden>SELEZIONA IL SERVIZIO</option>
+                                <option value="brand_identity">01. BRAND & IDENTITY</option>
+                                <option value="strategy_lead_gen">02. STRATEGIA, CONTENUTI & LEAD GENERATION</option>
+                                <option value="fashion_merch">03. FASHION & MERCHANDISING</option>
+                            </select>
+                            <span class="form-line"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="formMessage" required placeholder=" " rows="4" class="form-input form-textarea hover-trigger"></textarea>
+                            <label for="formMessage" class="form-label">BRIEF & OBIETTIVI</label>
+                            <span class="form-line"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full btn-shimmer hover-trigger" id="submitFormBtn">
+                            <span>INVIA RICHIESTA</span>
+                            <span class="material-symbols-outlined">bolt</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modale Dettaglio Prodotto Overlay (Raggruppato in basso) -->
+    <div class="garment-modal" id="garmentModal">
+        <div class="garment-modal-backdrop" id="modalBackdrop"></div>
+        <div class="garment-modal-content">
+            <button class="garment-modal-close hover-trigger" id="closeModal">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="modal-grid">
+                <div class="modal-gallery">
+                    <img src="" alt="Capo Selezionato" id="modalImg" class="modal-large-img">
+                </div>
+                <div class="modal-details">
+                    <div class="modal-item-tag" id="modalTag">FELPA</div>
+                    <h2 class="modal-item-title" id="modalTitle">FELPA CON STEMMA IMPERIALE</h2>
+                    <div class="modal-item-price" id="modalPrice">€ 189.00</div>
+                    <div class="divider-line"></div>
+                    
+                    <p class="modal-item-desc" id="modalDesc">
+                        Capo costruito per il comando. Questa capsule esclusiva presenta lo stemma ricamato corona-scudo che rappresenta la fusione perfetta tra grinta urbana e lusso classico.
+                    </p>
+                    
+                    <div class="modal-specifications">
+                        <div class="spec-row">
+                            <span class="spec-label">VESTIBILITÀ:</span>
+                            <span class="spec-val" id="modalFit">Taglio Imperiale Oversize</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">CUCITURE:</span>
+                            <span class="spec-val" id="modalStitch">Cuciture Rosse a Contrasto Spessorate</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">TESSUTO:</span>
+                            <span class="spec-val">Cotone Premium Spazzolato da 450 GSM</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-sizes">
+                        <span class="size-label">SELEZIONA TAGLIA:</span>
+                        <div class="sizes-row">
+                            <button class="size-btn hover-trigger">S</button>
+                            <button class="size-btn active hover-trigger">M</button>
+                            <button class="size-btn hover-trigger">L</button>
+                            <button class="size-btn hover-trigger">XL</button>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-full hover-trigger" id="commandBtn">
+                        <span>ORDINA IL CAPO</span>
+                        <span class="material-symbols-outlined">workspace_premium</span>
+                    </button>
+                    
+                    <div class="modal-disclaimer">
+                        *EDIZIONE LIMITATA D'ARCHIVIO. OGNI CAPO INCARNA UNA PRESENZA SOVRANA.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sezione 4: Merchandising & Lookbook (Spostata alla fine) -->
+    <section class="merch-section" id="merch">
+        <div class="section-container-fluid">
+            <div class="section-container">
+                <div class="section-header reveal-fade">
+                    <div class="section-tag text-center">ARCHIVIO CAPI</div>
+                    <h2 class="section-title text-center">LA COLLEZIONE SOVRANA</h2>
+                    <div class="divider-line mx-auto"></div>
+                </div>
+            </div>
+            
+            <!-- Horizontal Drag Scroll Slider -->
+            <div class="lookbook-slider-wrapper reveal-fade">
+                <div class="lookbook-slider" id="lookbookSlider">
+                    
+                    <!-- Garment 1 -->
+                    <div class="garment-card hover-trigger" data-item="1">
+                        <div class="garment-glare"></div>
+                        <div class="garment-img-holder">
+                            <img src="assets/clothing/crewneck_full.jpg" alt="EARLIEST Felpa con Stemma Imperiale" class="garment-img">
+                            <div class="garment-overlay">
+                                <span class="view-details-btn">DETTAGLI DI COMANDO</span>
+                            </div>
+                        </div>
+                        <div class="garment-info">
+                            <div class="garment-category">FELPA | ARCHIVIO</div>
+                            <h3 class="garment-title">FELPA CON STEMMA IMPERIALE</h3>
+                            <div class="garment-price">€ 189.00</div>
+                        </div>
+                    </div>
+
+                    <!-- Garment 2 -->
+                    <div class="garment-card hover-trigger" data-item="2">
+                        <div class="garment-glare"></div>
+                        <div class="garment-img-holder">
+                            <img src="assets/clothing/luxury_hoodie.jpg" alt="EARLIEST Hoodie Vanguard di Lusso" class="garment-img">
+                            <div class="garment-overlay">
+                                <span class="view-details-btn">DETTAGLI DI COMANDO</span>
+                            </div>
+                        </div>
+                        <div class="garment-info">
+                            <div class="garment-category">HOODIE | ARCHIVIO</div>
+                            <h3 class="garment-title">HOODIE VANGUARD DI LUSSO</h3>
+                            <div class="garment-price">€ 220.00</div>
+                        </div>
+                    </div>
+
+                    <!-- Garment 3 -->
+                    <div class="garment-card hover-trigger" data-item="3">
+                        <div class="garment-glare"></div>
+                        <div class="garment-img-holder">
+                            <img src="assets/clothing/elegant_polo.jpg" alt="EARLIEST Polo Aristocratica Slim-fit" class="garment-img">
+                            <div class="garment-overlay">
+                                <span class="view-details-btn">DETTAGLI DI COMANDO</span>
+                            </div>
+                        </div>
+                        <div class="garment-info">
+                            <div class="garment-category">POLO | SOVRANA</div>
+                            <h3 class="garment-title">POLO ARISTOCRATICA SLIM-FIT</h3>
+                            <div class="garment-price">€ 125.00</div>
+                        </div>
+                    </div>
+
+                    <!-- Garment 4 -->
+                    <div class="garment-card hover-trigger" data-item="4">
+                        <div class="garment-glare"></div>
+                        <div class="garment-img-holder">
+                            <img src="assets/clothing/crewneck_detail.jpg" alt="EARLIEST Dettaglio Felpa con Cuciture Rosse" class="garment-img">
+                            <div class="garment-overlay">
+                                <span class="view-details-btn">DETTAGLI DI COMANDO</span>
+                            </div>
+                        </div>
+                        <div class="garment-info">
+                            <div class="garment-category">FELPA | DETTAGLI</div>
+                            <h3 class="garment-title">CREWNECK CON DETTAGLI DI CUCITURA ROSSI</h3>
+                            <div class="garment-price">€ 195.00</div>
+                        </div>
+                    </div>
+
+                    <!-- Garment 5 -->
+                    <div class="garment-card hover-trigger" data-item="5">
+                        <div class="garment-glare"></div>
+                        <div class="garment-img-holder">
+                            <img src="assets/shooting/model_back_car.jpg" alt="EARLIEST Foto Editoriale Felpa Schiena" class="garment-img">
+                            <div class="garment-overlay">
+                                <span class="view-details-btn">DETTAGLI DI COMANDO</span>
+                            </div>
+                        </div>
+                        <div class="garment-info">
+                            <div class="garment-category">EDITORIALE | COPERTINA</div>
+                            <h3 class="garment-title">FELPA SOVRANA - STEMMA POSTERIORE</h3>
+                            <div class="garment-price">€ 189.00</div>
+                        </div>
+                    </div>
+
+                    <!-- Garment 6 -->
+                    <div class="garment-card hover-trigger" data-item="6">
+                        <div class="garment-glare"></div>
+                        <div class="garment-img-holder">
+                            <img src="assets/shooting/model_in_car.jpg" alt="EARLIEST Foto Editoriale Felpa Fronte" class="garment-img">
+                            <div class="garment-overlay">
+                                <span class="view-details-btn">DETTAGLI DI COMANDO</span>
+                            </div>
+                        </div>
+                        <div class="garment-info">
+                            <div class="garment-category">EDITORIALE | INTERNO VETTURA</div>
+                            <h3 class="garment-title">FELPA SOVRANA - STEMMA ANTERIORE</h3>
+                            <div class="garment-price">€ 189.00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slider Controls Hint -->
+            <div class="slider-hint text-center reveal-fade">
+                <span class="material-symbols-outlined">drag_indicator</span>
+                <span class="hint-text">TRASCINA O SCORRI PER SCOPRIRE LA COLLEZIONE</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="section-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/logo/logo_crest.png" alt="EARLIEST Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">EARLIEST</span>
+                    </div>
+                    <p class="footer-brand-desc">
+                        "LA NUOVA ÉLITE. FONDATO PER IL FUTURO."
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <h5 class="footer-links-title">NAVIGAZIONE</h5>
+                    <a href="#hero" class="footer-link">Inizio</a>
+                    <a href="#services" class="footer-link">Servizi</a>
+                    <a href="#merch" class="footer-link">Lookbook</a>
+                </div>
+
+                <div class="footer-links">
+                    <h5 class="footer-links-title">ARCHIVIO</h5>
+                    <a href="#" class="footer-link">Brand Book</a>
+                    <a href="#" class="footer-link">Identity Guidelines</a>
+                    <a href="#" class="footer-link">Termini di Sovranità</a>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h5 class="footer-links-title">RADAR SOVRANO</h5>
+                    <p class="newsletter-desc">Ricevi aggiornamenti sulle release d'archivio limitate ed esclusive.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="LA TUA EMAIL..." class="newsletter-input">
+                        <button class="newsletter-btn hover-trigger"><span class="material-symbols-outlined">arrow_right_alt</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copy">
+                    © 2026 EARLIEST CLOTHING CO. & DIREZIONE CREATIVA. TUTTI I DIRITTI RISERVATI.
+                </div>
+                <div class="footer-meta">
+                    L'HERITAGE INCONTRA L'AVANGUARDIA. EST. 1923.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

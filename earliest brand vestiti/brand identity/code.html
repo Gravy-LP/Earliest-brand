@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EARLIEST - Creative Direction &amp; Brand Identity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#ffdad4",
+                      "outline-variant": "#58413e",
+                      "secondary": "#eabe95",
+                      "on-secondary": "#452a0d",
+                      "surface-dim": "#131313",
+                      "on-surface": "#e5e2e1",
+                      "background": "#131313",
+                      "secondary-fixed-dim": "#eabe95",
+                      "primary-container": "#660000",
+                      "secondary-container": "#5f4021",
+                      "surface-container-high": "#2a2a2a",
+                      "inverse-surface": "#e5e2e1",
+                      "tertiary-fixed": "#e4e2e2",
+                      "on-secondary-fixed-variant": "#5f4021",
+                      "on-secondary-fixed": "#2c1600",
+                      "on-primary-fixed-variant": "#891d12",
+                      "surface-container-lowest": "#0e0e0e",
+                      "tertiary": "#c7c6c6",
+                      "on-tertiary-fixed": "#1b1c1c",
+                      "on-tertiary-fixed-variant": "#464747",
+                      "secondary-fixed": "#ffdcbe",
+                      "inverse-primary": "#aa3527",
+                      "surface-tint": "#ffb4a8",
+                      "surface-container": "#201f1f",
+                      "on-error": "#690005",
+                      "primary": "#ffb4a8",
+                      "surface-container-low": "#1c1b1b",
+                      "tertiary-fixed-dim": "#c7c6c6",
+                      "outline": "#a78a86",
+                      "inverse-on-surface": "#313030",
+                      "primary-fixed-dim": "#ffb4a8",
+                      "on-error-container": "#ffdad6",
+                      "surface": "#131313",
+                      "on-primary": "#680201",
+                      "on-primary-container": "#f56b58",
+                      "error": "#ffb4ab",
+                      "tertiary-container": "#2e2f2f",
+                      "on-primary-fixed": "#410000",
+                      "surface-variant": "#353534",
+                      "surface-bright": "#3a3939",
+                      "error-container": "#93000a",
+                      "on-tertiary-container": "#979696",
+                      "on-secondary-container": "#d7ad85",
+                      "surface-container-highest": "#353534",
+                      "on-surface-variant": "#dfbfba",
+                      "on-background": "#e5e2e1",
+                      "on-tertiary": "#303030"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px",
+                      "gutter": "24px",
+                      "container-max": "1440px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Cinzel"
+                      ],
+                      "label-sm": [
+                              "Montserrat"
+                      ],
+                      "headline-lg-mobile": [
+                              "Cinzel"
+                      ],
+                      "body-lg": [
+                              "Montserrat"
+                      ],
+                      "display-lg": [
+                              "Cinzel"
+                      ],
+                      "title-md": [
+                              "Montserrat"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.2em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "title-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+        }
+        
+        .premium-border {
+            border: 1px solid rgba(234, 190, 149, 0.15);
+        }
+        
+        .tonal-layer {
+            background-color: #0e0e0e;
+        }
+
+        .gold-border-top {
+            border-top: 1px solid rgba(234, 190, 149, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-lg text-body-lg antialiased selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<nav class="bg-background/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline/20">
+<div class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+<div class="font-display-lg text-display-lg text-primary tracking-widest flex items-center gap-4">
+<img alt="Earliest Logo" class="h-12 w-12 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-tm3iKGZv4oU97cOZzLFWbsnrAr2Sej_VCBkOo1Yuu5FaXY_x778SvQo8yJTQkV83gAC1cIK2GCa-Q1C32nuc_dzxGq6Y0HqMZcOsZ0yr118ZuFC-3Y_Nv4rMsbsP325NjIwOOOoVRjHY2iipIL-IBMZGJfyI0vzoiB-54CbUmSrAhOAJCCjkgnK_6SDa8FI6oOACHYAhgEnjtjneae8s9eqxd0cj2XPfDIJmAybV8gclTyr4npymWp1iuMZcMPE_vv1et_zoehM"/>
+                EARLIEST
+            </div>
+<div class="hidden md:flex gap-8">
+<a class="font-title-md text-title-md uppercase text-primary border-b border-primary pb-1" href="#">Brand Book</a>
+<a class="font-title-md text-title-md uppercase text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Identity</a>
+<a class="font-title-md text-title-md uppercase text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Guidelines</a>
+</div>
+<div class="flex gap-6">
+<button class="scale-95 duration-200 text-primary hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden bg-surface-container-lowest">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-background/40 via-background/80 to-background z-10"></div>
+<img alt="Hero Background" class="w-full h-full object-cover opacity-20 scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf76ug7LgbuskelwqS8HAU3i-yTKqmzeBve76Gu9PmmQRgqgdma9DviVATvP563nADwKc00UUn-DVX6xxgUKKaQm78LdsDtqNkJ3wfvB2oEUjOEzUrZxxJ27Vxd-zd5kokSi4j6sOnNeGZ_rePAgmTiF_oBOjt9qTzOQ0g6Pt-NL6umAmjoUCz0bOF3-NJrZas6W8jUQPy_6hByfEjBT3_eJNB7B2MUqbM-hS5VpSrCL4JbRiUrXYj4okZBPkyNOdxbgFDivkg4kA"/>
+</div>
+<div class="relative z-20 text-center px-margin-desktop flex flex-col items-center max-w-container-max mx-auto">
+<img alt="Earliest Large Logo" class="w-48 h-48 md:w-64 md:h-64 object-contain mb-12 opacity-90 drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-tm3iKGZv4oU97cOZzLFWbsnrAr2Sej_VCBkOo1Yuu5FaXY_x778SvQo8yJTQkV83gAC1cIK2GCa-Q1C32nuc_dzxGq6Y0HqMZcOsZ0yr118ZuFC-3Y_Nv4rMsbsP325NjIwOOOoVRjHY2iipIL-IBMZGJfyI0vzoiB-54CbUmSrAhOAJCCjkgnK_6SDa8FI6oOACHYAhgEnjtjneae8s9eqxd0cj2XPfDIJmAybV8gclTyr4npymWp1iuMZcMPE_vv1et_zoehM"/>
+<h1 class="font-display-lg text-display-lg text-on-background uppercase tracking-[0.2em] mb-6 drop-shadow-lg">
+                CREATIVE DIRECTION
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12 text-center">
+                Commanding the future by respecting the past. The comprehensive brand identity guide for the modern vanguard.
+            </p>
+</div>
+</header>
+<!-- Color Swatches -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto border-t border-outline/10">
+<h2 class="font-display-lg text-display-lg text-secondary uppercase mb-16 text-center">Color Palette</h2>
+<div class="flex flex-wrap justify-center gap-12">
+<div class="flex flex-col items-center">
+<div class="w-32 h-32 rounded-lg shadow-lg" style="background-color: #050505; border: 1px solid #333;"></div>
+<span class="mt-6 font-label-sm text-on-surface tracking-widest">#050505</span>
+<span class="mt-2 font-label-sm text-on-surface-variant">Black</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-32 h-32 rounded-lg shadow-lg" style="background-color: #5A5A5A"></div>
+<span class="mt-6 font-label-sm text-on-surface tracking-widest">#5A5A5A</span>
+<span class="mt-2 font-label-sm text-on-surface-variant">Gray</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-32 h-32 rounded-lg shadow-lg" style="background-color: #660000"></div>
+<span class="mt-6 font-label-sm text-on-surface tracking-widest">#660000</span>
+<span class="mt-2 font-label-sm text-on-surface-variant">Deep Red</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-32 h-32 rounded-lg shadow-lg" style="background-color: #0F0000"></div>
+<span class="mt-6 font-label-sm text-on-surface tracking-widest">#0F0000</span>
+<span class="mt-2 font-label-sm text-on-surface-variant">Darker Red</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-32 h-32 rounded-lg shadow-lg" style="background-color: #ECC097"></div>
+<span class="mt-6 font-label-sm text-on-surface tracking-widest">#ECC097</span>
+<span class="mt-2 font-label-sm text-on-surface-variant">Champagne Gold</span>
+</div>
+</div>
+</section>
+<!-- Typography Section -->
+<section class="py-24 bg-surface-container-low border-y border-outline/10">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<h2 class="font-display-lg text-display-lg text-center text-secondary uppercase mb-16">Typography</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<div class="tonal-layer p-12 premium-border">
+<h3 class="font-headline-lg text-headline-lg text-on-background mb-2">Cinzel refined</h3>
+<p class="font-body-lg text-on-surface-variant mb-12">Montserrat simplified</p>
+<div class="space-y-8">
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-widest">Headline</span>
+<span class="font-headline-lg text-3xl text-on-background tracking-wider uppercase">ABCDEFGHIJKLM</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-widest">Body</span>
+<span class="font-headline-lg text-2xl text-on-background lowercase">abcdefghijklm</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-widest">Subhead</span>
+<span class="font-headline-lg text-2xl text-on-background">12345789</span>
+</div>
+</div>
+</div>
+<div class="tonal-layer p-12 premium-border">
+<h3 class="font-title-md text-4xl font-bold text-on-background mb-2">Minzel refined</h3>
+<p class="font-body-lg text-on-surface-variant mb-12">Montserrat simplified</p>
+<div class="space-y-8 font-body-lg">
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-widest">Headline</span>
+<span class="font-title-md text-2xl text-on-background uppercase tracking-widest">ABCDEFGHIJKLM</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-widest">Body</span>
+<span class="font-body-lg text-xl text-on-background">abcdefghijklm</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-widest">Subhead</span>
+<span class="font-body-lg text-xl text-on-background">12345789</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Iconography System -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<h2 class="font-display-lg text-display-lg text-secondary uppercase mb-16 text-center">Icon Set</h2>
+<div class="flex justify-center gap-24 flex-wrap">
+<div class="flex flex-col items-center gap-6">
+<div class="w-24 h-24 rounded-full bg-primary-container/20 flex items-center justify-center premium-border">
+<span class="material-symbols-outlined text-6xl text-primary-container" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<span class="font-label-sm text-on-surface uppercase tracking-widest">Quality</span>
+</div>
+<div class="flex flex-col items-center gap-6">
+<div class="w-24 h-24 rounded-full bg-primary-container/20 flex items-center justify-center premium-border">
+<span class="material-symbols-outlined text-6xl text-primary-container" style="font-variation-settings: 'FILL' 1;">handyman</span>
+</div>
+<span class="font-label-sm text-on-surface uppercase tracking-widest">Craftsmanship</span>
+</div>
+<div class="flex flex-col items-center gap-6">
+<div class="w-24 h-24 rounded-full bg-primary-container/20 flex items-center justify-center premium-border">
+<span class="material-symbols-outlined text-6xl text-primary-container" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+</div>
+<span class="font-label-sm text-on-surface uppercase tracking-widest">Vision</span>
+</div>
+<div class="flex flex-col items-center gap-6">
+<div class="w-24 h-24 rounded-full bg-primary-container/20 flex items-center justify-center premium-border">
+<span class="material-symbols-outlined text-6xl text-primary-container" style="font-variation-settings: 'FILL' 1;">local_police</span>
+</div>
+<span class="font-label-sm text-on-surface uppercase tracking-widest">Command</span>
+</div>
+</div>
+</section>
+<!-- Instagram Identity Section -->
+<section class="py-24 bg-surface-container-low border-y border-outline/10">
+<div class="max-w-container-max mx-auto px-margin-desktop text-center">
+<h2 class="font-display-lg text-display-lg text-secondary uppercase mb-16">Instagram Identity</h2>
+<div class="flex justify-center">
+<div class="w-[375px] h-[812px] bg-black rounded-[40px] premium-border overflow-hidden relative shadow-2xl">
+<!-- Top Bar Mock -->
+<div class="flex justify-between items-center px-6 pt-4 text-white text-xs">
+<span>9:41</span>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-sm">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-sm">wifi</span>
+<span class="material-symbols-outlined text-sm">battery_full</span>
+</div>
+</div>
+<!-- IG Header -->
+<div class="flex justify-between items-center px-4 py-3 text-white border-b border-white/10">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+<span class="font-semibold text-lg">@earliest_clothing_co</span>
+<span class="material-symbols-outlined">more_horiz</span>
+</div>
+<!-- Profile Info -->
+<div class="px-4 py-6 text-left">
+<div class="flex items-center gap-6 mb-4">
+<img alt="Profile" class="w-20 h-20 rounded-full object-cover border border-outline/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZAJU8CRkhEQVYRaLMirMJRMGb9JJ8ZudicJrhk-SnTERrQ-YUou1Sl7x5oxNFwtjfcbwlmekvl-aqeLwGgxQvkf1DuGkhQtAHB2perST39w3R7nSULf548OHewAP0wwKvhlIHAB9RTDfKSl6j-5cfGCiEcJtb5Bi2AAgrpL_aSzP2_1Vu03onhfRPmxbyqWEgipyRClqMO1KKM7WctJykqtEn94S0KtZJQAUpY_0Os261rXtEjHgMSR2tpECmIFHwiEFClmsrKP0"/>
+<div class="flex gap-6 text-white text-center flex-1">
+<div>
+<div class="font-bold">12</div>
+<div class="text-xs text-gray-400">Posts</div>
+</div>
+<div>
+<div class="font-bold">15.2k</div>
+<div class="text-xs text-gray-400">Followers</div>
+</div>
+<div>
+<div class="font-bold">142</div>
+<div class="text-xs text-gray-400">Following</div>
+</div>
+</div>
+</div>
+<div class="text-white text-sm">
+<div class="font-semibold mb-1">earliest_clothing_co</div>
+<div class="text-gray-300">The New Elite. A Situative...</div>
+<div class="text-blue-400 mt-1">earliest_clothing_co</div>
+</div>
+</div>
+<!-- Tabs -->
+<div class="flex justify-around border-y border-white/10 py-3 text-white">
+<span class="material-symbols-outlined">grid_on</span>
+<span class="material-symbols-outlined text-gray-500">ondemand_video</span>
+<span class="material-symbols-outlined text-gray-500">person_pin</span>
+</div>
+<!-- Grid -->
+<div class="grid grid-cols-3 gap-[1px] bg-black">
+<!-- Top Row -->
+<div class="aspect-square bg-surface-container flex items-center justify-center p-2">
+<img alt="Red Logo Badge" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZAJU8CRkhEQVYRaLMirMJRMGb9JJ8ZudicJrhk-SnTERrQ-YUou1Sl7x5oxNFwtjfcbwlmekvl-aqeLwGgxQvkf1DuGkhQtAHB2perST39w3R7nSULf548OHewAP0wwKvhlIHAB9RTDfKSl6j-5cfGCiEcJtb5Bi2AAgrpL_aSzP2_1Vu03onhfRPmxbyqWEgipyRClqMO1KKM7WctJykqtEn94S0KtZJQAUpY_0Os261rXtEjHgMSR2tpECmIFHwiEFClmsrKP0"/>
+</div>
+<div class="aspect-square relative group">
+<img alt="Urban Portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvUV0IkgwkOgbHd53f2aLhqsAfsk6DViJh3y-JiX3F1FEwldWzmOA8WuzlDyHEoxoDfQI58t-Yg6rA7KrZwTR8Zzpz8-cwMFkAv8MN57jw9TtuIvBJPdQrClK3CiNhlAZMyMdY3I1ko_vAWcvmXvUfzBqQlM9XF9AJuJA18_VXstChDaYha9bR-dgEWKwAM1A06DVoY8r_DnwZsF2NN03CZ5KobkY0drk1WyjJyk5UCs83cDU6sgmK-Dh_YMSm_eHJ4uLa0etG3Y0"/>
+<div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition-opacity">
+<span class="material-symbols-outlined">favorite</span>
+</div>
+</div>
+<div class="aspect-square bg-surface-container flex items-center justify-center bg-[#0F0000]">
+<span class="text-[#ECC097] font-display-lg text-sm tracking-widest text-center px-2">EST. 1923</span>
+</div>
+<!-- Middle Row -->
+<div class="aspect-square relative group">
+<img alt="Product Tag" class="w-full h-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDFrnJcJkF5ZRC7Y6pn9QUX7UJgxk2_9J3tFOskpC1M_p2WWu22U2hf1dDdJLlzlOt35ETsOualO--Lx39YzvuKPkw_5n2KZ_bUcgAp74z4yMDXHNERwvOV04YxRyhGjxtyn_aV3vKc1Ew8nyzGVcs0X0YHg9v5LLHOulV49y9ZSjanpeABAKKkzODWiDtsfrwaYRMbOuVbIZHKFHcI-uz5-BtQkQvaqwThU5fx2Mbx5PXnSCHMT43jud4LNv5xf6thK2wZCg8ung"/>
+</div>
+<div class="aspect-square relative group bg-surface-container">
+<img alt="Urban Architecture" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCQ92IGN4swA_88a_nDNwXUxIokiK9Co3PXxnahbV0OVTecofdJskVYbG1LOWHuTaMEY1zTDN4WuHk8ydCOI8dTLMPLN018Rjstxa5ovkA_kacgC50NMmhfWEXbeu7zGC0whS80xaNxcBLJL8O5Xrto7Dmmkv8AQ64Iscd6_IYz7ycupLp15YK5MZnQwIe_q-l6cPIdgAu_R54d9-jHfjojz0F28ltu7zum5X2dlJKpGNL7ObO_-U2ZSCfBlxz8DAJTnHtwchHOZg"/>
+</div>
+<div class="aspect-square relative group">
+<img alt="Stacked Merchandise" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5QRn6gGpogtDgW9h3r6NP__hlY7UYAuaPYEn3qLFQctAOpTp60DXh6TkMD6YHnJr5oYbkiAHUpSayWl9kArssOxBGyVbIck-7F3s3FpT5vKv5WbOsFGFwI90xEzyPEYclgLCMwlM-ES_WOxD4co1Rxf9PkHtaKhuAD9EKX37W2AFb9FUVagUfvJ7VVLipm2bNeZ3jp0RLreQp9zZtjAwdvkgaxqlsZq29471E82nbwET9djiOV-Oea834Au5BZcHfO-6DBji0TP4"/>
+</div>
+<!-- Bottom Row -->
+<div class="aspect-square relative group">
+<img alt="Lifestyle Portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH2vdj8CbK57ppnMyd8JKvVLvWdS9zXQISKpJZOjJY5SlstZDtdzXEYpYL-CTgCozRIEYRuFiKUc2VcJmIvhJX5SCM332qCBvGNr5f57QccqKlgGbVcPWK3j9mwCc9OvUC-gqdWGTlqevc3Xa6NByW5FHAziLe6_Qe8gkslHdBHemKmhEM4uXVl9ZormEelY0nYVxfQCo59GzAbE7UvyIs_GBBg_Jmk0kYtcPd9uO6E2YSudhF1ah4HsJ4ajFWudsZqlZZbFMF1-c"/>
+</div>
+<div class="aspect-square bg-surface-container flex items-center justify-center bg-[#660000]">
+<span class="text-[#ECC097] font-display-lg text-sm tracking-widest text-center px-2">IMPERIAL VANGUARD</span>
+</div>
+<div class="aspect-square bg-surface-container flex items-center justify-center bg-[#050505]">
+<span class="text-[#ECC097] font-display-lg text-sm tracking-widest text-center px-2">THE NEW ELITE</span>
+</div>
+</div>
+<!-- Bottom Nav Mock -->
+<div class="absolute bottom-0 w-full flex justify-around items-center h-16 bg-black border-t border-white/10 text-white px-4">
+<span class="material-symbols-outlined">home</span>
+<span class="material-symbols-outlined">search</span>
+<span class="material-symbols-outlined">add_box</span>
+<span class="material-symbols-outlined">favorite</span>
+<img alt="Profile Mini" class="w-6 h-6 rounded-full border border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZAJU8CRkhEQVYRaLMirMJRMGb9JJ8ZudicJrhk-SnTERrQ-YUou1Sl7x5oxNFwtjfcbwlmekvl-aqeLwGgxQvkf1DuGkhQtAHB2perST39w3R7nSULf548OHewAP0wwKvhlIHAB9RTDfKSl6j-5cfGCiEcJtb5Bi2AAgrpL_aSzP2_1Vu03onhfRPmxbyqWEgipyRClqMO1KKM7WctJykqtEn94S0KtZJQAUpY_0Os261rXtEjHgMSR2tpECmIFHwiEFClmsrKP0"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Manifesto Section -->
+<section class="py-32 px-margin-desktop max-w-container-max mx-auto border-t border-outline/10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="relative h-[600px] w-full grid grid-cols-2 grid-rows-2 gap-2 tonal-layer premium-border group overflow-hidden bg-black"><div class="row-span-2 overflow-hidden"><img alt="High-end Baggy Pants" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000 grayscale group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCQ92IGN4swA_88a_nDNwXUxIokiK9Co3PXxnahbV0OVTecofdJskVYbG1LOWHuTaMEY1zTDN4WuHk8ydCOI8dTLMPLN018Rjstxa5ovkA_kacgC50NMmhfWEXbeu7zGC0whS80xaNxcBLJL8O5Xrto7Dmmkv8AQ64Iscd6_IYz7ycupLp15YK5MZnQwIe_q-l6cPIdgAu_R54d9-jHfjojz0F28ltu7zum5X2dlJKpGNL7ObO_-U2ZSCfBlxz8DAJTnHtwchHOZg"/></div><div class="overflow-hidden"><img alt="Fleece Detail" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000 grayscale group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmqCqp5fju3bkHcHReR-ppyuAhxp2zFNbDoD5zpb5hkeBVR6-NHzgdjkkaOEjNAMuuVbrXW4Re4Zv5yoEpUZifusuy6ZkM66GJhkSfETPORix5M5KAaRxNv9rRtDSyif_gbS9qkRbmb7-FOL5MlQd4azkWk6wS0Tlw8KDzXf9L24CJMtn5luGHXw2LmYAb2WojviQzTtljaQoPbXt1rw9l6YzJBYYRUvlN6ZdN-YljGtjF5-jcOcf5Z6KxwvxJTMtAgQ3DDqHvuKE"/></div><div class="overflow-hidden"><img alt="Close-up Embroidery" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000 grayscale group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeHDtUVW01bjFu9njk_LL6tIztgEOrdfgui_jLWKF2Dq47AUUapLa00kFoeG9nPgXpvKX4r6LTPXNcxnnt0AYYNw0fNcNOc2ZjMrRBgbAkqU5_c3SBr4FQNMWjLG2uMiSRHQP8-OIWfufbXZPNc692_8PDOCPeaafbfB4vjz_BbEcQHm57e04_V43pUC4j_MV9qMaT0G3z7M2K53IqimUeonKEKi4CRrBtT7juYeVpVy8KYNqdbh_5C_FdIIFxdrG2FzMpXMEPpMQ"/></div><div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-700 pointer-events-none"></div></div>
+<div class="flex flex-col justify-center">
+<h2 class="font-headline-lg text-5xl text-secondary uppercase mb-8 leading-tight">
+                    LET'S COMMANDS A NEW FUTURE TOGETHER.
+                </h2>
+<div class="w-16 h-1 bg-primary-container mb-8"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                    Establishing the new elite. We do not follow trends; we command the future by respecting the past. Our garments are not merely worn; they are wielded.
+                </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+                    Every seam is a statement of intent. Every silhouette a declaration of sovereignty. Welcome to the urban aristocracy.
+                </p>
+<button class="self-start text-secondary font-title-md text-title-md uppercase border-b border-secondary pb-1 hover:text-primary hover:border-primary transition-colors">
+                    Discover Our Ethos
+                </button>
+</div>
+</div>
+</section>
+<!-- Enhanced Sovereign Details Grid -->
+<section class="py-32 bg-surface-container-low border-y border-outline/10">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24">
+<div class="tonal-layer p-12 premium-border">
+<h2 class="font-headline-lg text-headline-lg text-secondary uppercase mb-12">PERCHÉ SCEGLIERCI?</h2>
+<div class="space-y-10">
+<div>
+<h3 class="font-title-md text-xl text-on-background mb-2">Imperial Vanguard:</h3>
+<p class="font-body-lg text-on-surface-variant uppercase tracking-wider">GRIT MEETS LUXURY</p>
+</div>
+<div>
+<h3 class="font-title-md text-xl text-on-background mb-2">Sovereign Style:</h3>
+<p class="font-body-lg text-on-surface-variant uppercase tracking-wider">STREET STATUS REDEFINED</p>
+</div>
+<div>
+<h3 class="font-title-md text-xl text-on-background mb-2">Unmatched Quality:</h3>
+<p class="font-body-lg text-on-surface-variant leading-relaxed">COMMITTED TO CRAFT<br/>Eerllect iments command of streekined vanguard.</p>
+</div>
+</div>
+</div>
+<div class="tonal-layer p-12 premium-border">
+<h2 class="font-headline-lg text-headline-lg text-secondary uppercase mb-12">COSA FACCIAMO</h2>
+<div class="space-y-10">
+<div>
+<h3 class="font-title-md text-xl text-on-background mb-2">HERITAGE APPAREL:</h3>
+<p class="font-body-lg text-on-surface-variant leading-relaxed">Garments built for command.</p>
+</div>
+<div>
+<h3 class="font-title-md text-xl text-on-background mb-2">VANGUARD VISION:</h3>
+<p class="font-body-lg text-on-surface-variant uppercase tracking-wider">MEDIOTTED TO Cheirl</p>
+</div>
+<div>
+<h3 class="font-title-md text-xl text-on-background mb-2">Command Presence:</h3>
+<p class="font-body-lg text-on-surface-variant leading-relaxed">OWN THE STREET.<br/>Products with a historical and Future impact.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<section class="py-32 px-margin-desktop max-w-container-max mx-auto border-t border-outline/10">
+<div class="text-center mb-20">
+<h2 class="font-display-lg text-display-lg text-secondary uppercase mb-6">TONE OF VOICE</h2>
+<div class="w-24 h-1 bg-primary-container mx-auto mb-12"></div>
+<h3 class="font-headline-lg text-4xl text-on-background uppercase mb-6">THE VOICE OF COMMAND</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto">
+            Our communication is a reflection of our craft: precise, authoritative, and unapologetically sophisticated. We speak to the new elite with the weight of history and the sharp edge of the future.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="tonal-layer p-8 premium-border flex flex-col gap-4">
+<h4 class="font-headline-lg text-xl text-primary uppercase tracking-widest">DIRECT</h4>
+<p class="font-body-lg text-on-surface-variant text-sm">We eliminate the noise. Every word serves a purpose.</p>
+</div>
+<div class="tonal-layer p-8 premium-border flex flex-col gap-4">
+<h4 class="font-headline-lg text-xl text-primary uppercase tracking-widest">SERIOUS</h4>
+<p class="font-body-lg text-on-surface-variant text-sm">We respect the gravity of our heritage. No triviality.</p>
+</div>
+<div class="tonal-layer p-8 premium-border flex flex-col gap-4">
+<h4 class="font-headline-lg text-xl text-primary uppercase tracking-widest">DECISIVE</h4>
+<p class="font-body-lg text-on-surface-variant text-sm">We don't follow trends; we define the vanguard.</p>
+</div>
+<div class="tonal-layer p-8 premium-border flex flex-col gap-4">
+<h4 class="font-headline-lg text-xl text-primary uppercase tracking-widest">ELEGANT</h4>
+<p class="font-body-lg text-on-surface-variant text-sm">Sophistication in every syllable. A quiet power that demands attention.</p>
+</div>
+</div>
+</section><footer class="bg-surface-container-lowest w-full border-t border-outline/10">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-gutter w-full max-w-container-max mx-auto gap-8 md:gap-0">
+<div class="font-headline-lg text-headline-lg text-primary flex items-center gap-3">
+<img alt="Earliest Footer Logo" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-tm3iKGZv4oU97cOZzLFWbsnrAr2Sej_VCBkOo1Yuu5FaXY_x778SvQo8yJTQkV83gAC1cIK2GCa-Q1C32nuc_dzxGq6Y0HqMZcOsZ0yr118ZuFC-3Y_Nv4rMsbsP325NjIwOOOoVRjHY2iipIL-IBMZGJfyI0vzoiB-54CbUmSrAhOAJCCjkgnK_6SDa8FI6oOACHYAhgEnjtjneae8s9eqxd0cj2XPfDIJmAybV8gclTyr4npymWp1iuMZcMPE_vv1et_zoehM"/>
+                EARLIEST
+            </div>
+<div class="flex flex-wrap justify-center gap-6 md:gap-8">
+<a class="font-label-sm text-label-sm uppercase text-on-tertiary-container hover:text-secondary-fixed transition-all opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm uppercase text-on-tertiary-container hover:text-secondary-fixed transition-all opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm uppercase text-on-tertiary-container hover:text-secondary-fixed transition-all opacity-80 hover:opacity-100" href="#">Contact</a>
+</div>
+<div class="font-label-sm text-label-sm uppercase text-on-tertiary-container opacity-60 text-center md:text-right">
+                © 2024 EARLIEST CLOTHING CO. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+</body></html>
