@@ -65,8 +65,11 @@
     gap: 40px;
     padding: 30px;
   }
-  
+
   .attraction-article:nth-child(even) .attraction-content {
     order: 0;
   }
 }
+
+
+2222
