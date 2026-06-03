@@ -1,0 +1,735 @@
+/* ==========================================================================
+   INDEX.CSS — Homepage-Specific Styles (index.html)
+   ========================================================================== */
+
+/* Homepage body overflow control */
+body.homepage-body, html.js {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   HERO COLUMNS GRID (HOMEPAGE 3-COLUMN LAYOUT)
+   ========================================================================== */
+.hero-columns {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 0.9fr;
+  gap: 30px;
+  align-items: center;
+  min-height: 80vh;
+  padding: 60px 0;
+  z-index: 10;
+  position: relative;
+}
+
+/* ==========================================================================
+   ADVENTURE PATH GRID (HOMEPAGE SECTIONS)
+   ========================================================================== */
+.adventure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.adventure-card {
+  position: relative;
+  background-color: var(--bianco-caldo);
+  border: 3px solid var(--cioccolato-profondo);
+  border-radius: var(--border-radius-storybook);
+  padding: 35px 30px;
+  box-shadow: 0 8px 0 var(--cioccolato-profondo);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+}
+
+.adventure-card * {
+  transform-style: preserve-3d;
+}
+
+.adventure-card:hover {
+  box-shadow: 0 16px 0 var(--cioccolato-profondo);
+}
+
+
+.adventure-card-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.adventure-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.adventure-card p {
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+.adventure-card-link {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--rosa-fragola);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+}
+
+.adventure-card-link span {
+  transition: var(--transition-cro);
+}
+
+.adventure-card:hover .adventure-card-link span {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   CSS SCROLL SNAP & FULL-SCREEN SLIDES (INTERCHANGEABLE SECTIONS)
+   ========================================================================== */
+.homepage-slides-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Hide default scrollbar for seamless presentation */
+}
+
+.homepage-slides-container::-webkit-scrollbar {
+  display: none;
+}
+
+.section-slide {
+  height: 100vh;
+  width: 100vw;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Base states for entrance animations (hidden by default) */
+.section-slide .hero-content,
+.section-slide .hero-visual-frame,
+.section-slide .adventure-card,
+.section-slide .relax-spotlight,
+.section-slide .steam-card,
+.section-slide .safety-badge-item,
+.section-slide .section-headline {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Active states (triggered via JS IntersectionObserver) */
+.section-slide.active .hero-content,
+.section-slide.active .hero-visual-frame,
+.section-slide.active .relax-spotlight,
+.section-slide.active .section-headline {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Staggered entrance for adventure cards in Section 2 */
+.section-slide.active .adventure-card:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0) scale(1); }
+.section-slide.active .adventure-card:nth-child(2) { transition-delay: 0.25s; opacity: 1; transform: translateY(0) scale(1); }
+.section-slide.active .adventure-card:nth-child(3) { transition-delay: 0.4s; opacity: 1; transform: translateY(0) scale(1); }
+.section-slide.active .adventure-card:nth-child(4) { transition-delay: 0.55s; opacity: 1; transform: translateY(0) scale(1); }
+
+/* Staggered entrance for STEAM cards in Section 4 */
+.section-slide.active .steam-card:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0) scale(1); }
+.section-slide.active .steam-card:nth-child(2) { transition-delay: 0.3s; opacity: 1; transform: translateY(0) scale(1); }
+.section-slide.active .steam-card:nth-child(3) { transition-delay: 0.5s; opacity: 1; transform: translateY(0) scale(1); }
+
+/* Staggered entrance for safety badges */
+.section-slide.active .safety-badge-item:nth-child(1) { transition-delay: 0.15s; opacity: 1; transform: translateY(0) scale(1); }
+.section-slide.active .safety-badge-item:nth-child(2) { transition-delay: 0.35s; opacity: 1; transform: translateY(0) scale(1); }
+.section-slide.active .safety-badge-item:nth-child(3) { transition-delay: 0.55s; opacity: 1; transform: translateY(0) scale(1); }
+
+/* ==========================================================================
+   PERSISTENT STICKY BOTTOM BAR (PRENOTA ORA)
+   ========================================================================== */
+.sticky-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(45, 27, 8, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 3px solid var(--rosa-fragola);
+  padding: 12px 5%;
+  z-index: 1500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.sticky-bottom-bar.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.sticky-bar-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--bianco-caldo);
+}
+
+.sticky-bar-title {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--giallo-sole);
+}
+
+.sticky-bar-desc {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.btn-sticky-cta {
+  background-color: var(--turchese-menta);
+  color: var(--bianco-caldo);
+  padding: 10px 26px;
+  border-radius: 50px;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(0, 191, 165, 0.3);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s;
+  animation: pulseButton 2s infinite alternate;
+}
+
+.btn-sticky-cta:hover {
+  background-color: var(--rosa-fragola);
+  transform: scale(1.06);
+}
+
+@keyframes pulseButton {
+  0% { transform: scale(1); box-shadow: 0 4px 12px rgba(0, 191, 165, 0.3); }
+  100% { transform: scale(1.05); box-shadow: 0 6px 18px rgba(0, 191, 165, 0.5); }
+}
+
+/* ==========================================================================
+   FUTURISTIC 3D DECK ZOOM TRANSITIONS
+   ========================================================================== */
+.homepage-slides-container {
+  perspective: 1500px;
+  transform-style: preserve-3d;
+}
+
+.section-slide {
+  transform-style: preserve-3d;
+  perspective: 1500px;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 1s ease, 
+              filter 1.2s ease;
+  opacity: 0;
+  filter: blur(8px);
+  transform: scale(0.85) translateZ(-250px) rotateX(10deg);
+  z-index: 1;
+  padding-top: 80px;
+  box-sizing: border-box;
+}
+
+.section-slide.active {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1) translateZ(0) rotateX(0deg);
+  z-index: 10;
+}
+
+/* ==========================================================================
+   CARD SPECULAR GLARE — ADVENTURE CARD HOVER
+   ========================================================================== */
+.adventure-card:hover .storybook-glare {
+  opacity: 1;
+}
+
+/* Ensure children elements pop in 3D parallax! */
+.adventure-card-icon, .adventure-card h3 {
+  transform: translateZ(35px);
+}
+.adventure-card p {
+  transform: translateZ(18px);
+}
+.adventure-card-link {
+  transform: translateZ(24px);
+}
+
+/* ==========================================================================
+   MAGICAL HUD & ORBIT GEOMETRICS
+   ========================================================================== */
+.magical-hud-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--rosa-fragola);
+}
+
+#slide-hero .magical-hud-bg { color: var(--rosa-fragola); }
+#slide-softplay .magical-hud-bg { color: var(--cioccolato-profondo); }
+#slide-vr .magical-hud-bg { color: var(--turchese-menta); }
+#slide-ristorazione .magical-hud-bg { color: var(--giallo-sole); }
+#slide-enrichment .magical-hud-bg { color: var(--rosa-fragola); }
+#slide-pacchetti .magical-hud-bg { color: var(--turchese-menta); }
+#slide-sicurezza .magical-hud-bg { color: var(--giallo-sole); }
+
+.hud-circle-orbit {
+  width: 88vh;
+  height: 88vh;
+  animation: rotateHUD 28s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes rotateHUD {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.04); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* ==========================================================================
+   STARDUST PHYSICS CURSOR STAR TRAILS
+   ========================================================================== */
+.cursor-sparkle {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: var(--rosa-fragola);
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  box-shadow: 0 0 10px currentColor;
+  will-change: transform, opacity;
+}
+
+/* ==========================================================================
+   CHARACTER SHOWCASE SYSTEM (REPLACES RED BULL CANS)
+   ========================================================================== */
+
+/* Giant watermarks */
+.slide-bg-word {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  font-family: var(--font-title);
+  font-size: 15vw;
+  font-weight: 900;
+  color: rgba(45, 27, 8, 0.035);
+  text-transform: uppercase;
+  letter-spacing: -3px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 0;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.section-slide.active .slide-bg-word {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Character Showcase Container */
+.character-showcase {
+  width: 280px;
+  height: 380px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  z-index: 20;
+  border-radius: 40px;
+  padding: 30px 20px;
+  text-align: center;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  cursor: pointer;
+  
+  /* Default hidden state */
+  opacity: 0;
+  transform: scale(0.5) rotateY(-40deg) translateY(60px);
+  transition: 
+    transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    opacity 0.8s ease;
+  will-change: transform, opacity;
+}
+
+/* Active state: character enters with spring animation */
+.section-slide.active .character-showcase {
+  opacity: 1;
+  transform: scale(1) rotateY(0deg) translateY(0);
+}
+
+/* Glow ring behind character */
+.character-glow {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%) scale(0.6);
+  opacity: 0;
+  transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s, 
+              opacity 0.8s ease 0.2s;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.section-slide.active .character-glow {
+  transform: translate(-50%, -55%) scale(1);
+  opacity: 1;
+  animation: glowPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% { filter: blur(30px) brightness(1); transform: translate(-50%, -55%) scale(1); }
+  100% { filter: blur(40px) brightness(1.2); transform: translate(-50%, -55%) scale(1.08); }
+}
+
+/* Character Icon (Image) */
+.character-icon {
+  width: 180px;
+  height: 180px;
+  z-index: 2;
+  position: relative;
+  margin-bottom: 18px;
+  transform: translateY(30px) scale(0.3) rotate(-15deg);
+  opacity: 0;
+  transition: 
+    transform 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s,
+    opacity 0.6s ease 0.3s;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.25));
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.character-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.section-slide.active .character-icon {
+  transform: translateY(0) scale(1) rotate(0deg);
+  opacity: 1;
+  animation: characterFloat 4s ease-in-out 1.2s infinite alternate;
+}
+
+@keyframes characterFloat {
+  0% { transform: translateY(0) scale(1) rotate(0deg); }
+  50% { transform: translateY(-12px) scale(1.05) rotate(2deg); }
+  100% { transform: translateY(5px) scale(0.97) rotate(-2deg); }
+}
+
+/* Character Name */
+.character-name {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1.6rem;
+  z-index: 2;
+  position: relative;
+  margin-bottom: 6px;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: 
+    transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s,
+    opacity 0.5s ease 0.5s;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.section-slide.active .character-name {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Character Tagline */
+.character-tagline {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  z-index: 2;
+  position: relative;
+  padding: 4px 16px;
+  border-radius: 20px;
+  transform: translateY(15px);
+  opacity: 0;
+  transition: 
+    transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.65s,
+    opacity 0.5s ease 0.65s;
+}
+
+.section-slide.active .character-tagline {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ======== CHARACTER THEMED SKINS ======== */
+
+/* MICKEY - Slide 1 (Hero) */
+[data-character="mickey"] {
+  background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border: 3px solid var(--giallo-sole);
+  box-shadow: 0 20px 60px rgba(255, 202, 40, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+[data-character="mickey"] .character-glow {
+  background: radial-gradient(circle, rgba(255, 202, 40, 0.5) 0%, transparent 70%);
+}
+[data-character="mickey"] .character-name { color: var(--giallo-sole); }
+[data-character="mickey"] .character-tagline { 
+  color: rgba(255, 253, 249, 0.8); 
+  background: rgba(255, 202, 40, 0.15);
+  border: 1px solid rgba(255, 202, 40, 0.3);
+}
+
+/* POOH - Slide 2 (Soft Play) */
+[data-character="pooh"] {
+  background: linear-gradient(145deg, #fff3cd 0%, #ffe082 50%, #ffca28 100%);
+  border: 3px solid var(--cioccolato-profondo);
+  box-shadow: 0 20px 60px rgba(255, 202, 40, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+[data-character="pooh"] .character-glow {
+  background: radial-gradient(circle, rgba(240, 98, 146, 0.4) 0%, transparent 70%);
+}
+[data-character="pooh"] .character-name { color: var(--cioccolato-profondo); }
+[data-character="pooh"] .character-tagline { 
+  color: var(--cioccolato-profondo); 
+  background: rgba(45, 27, 8, 0.08);
+  border: 1px solid rgba(45, 27, 8, 0.15);
+}
+
+/* BUZZ - Slide 3 (VR) */
+[data-character="buzz"] {
+  background: linear-gradient(145deg, #0d0d2b 0%, #1a0a3e 50%, #2d135c 100%);
+  border: 3px solid var(--turchese-menta);
+  box-shadow: 0 20px 60px rgba(0, 191, 165, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+[data-character="buzz"] .character-glow {
+  background: radial-gradient(circle, rgba(0, 191, 165, 0.5) 0%, transparent 70%);
+}
+[data-character="buzz"] .character-name { color: var(--turchese-menta); text-shadow: 0 0 12px rgba(0, 191, 165, 0.4); }
+[data-character="buzz"] .character-tagline { 
+  color: rgba(255, 255, 255, 0.85); 
+  background: rgba(0, 191, 165, 0.15);
+  border: 1px solid rgba(0, 191, 165, 0.3);
+}
+
+/* REMY - Slide 4 (Ristorazione) */
+[data-character="remy"] {
+  background: linear-gradient(145deg, #2D1B08 0%, #4E342E 50%, #5D4037 100%);
+  border: 3px solid var(--giallo-sole);
+  box-shadow: 0 20px 60px rgba(45, 27, 8, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+[data-character="remy"] .character-glow {
+  background: radial-gradient(circle, rgba(255, 202, 40, 0.45) 0%, transparent 70%);
+}
+[data-character="remy"] .character-name { color: var(--giallo-sole); }
+[data-character="remy"] .character-tagline { 
+  color: rgba(255, 255, 255, 0.8); 
+  background: rgba(255, 202, 40, 0.12);
+  border: 1px solid rgba(255, 202, 40, 0.25);
+}
+
+/* DEXTER - Slide 5 (Enrichment STEAM) */
+[data-character="dexter"] {
+  background: linear-gradient(145deg, #e8f5e9 0%, #a5d6a7 50%, #66bb6a 100%);
+  border: 3px solid var(--cioccolato-profondo);
+  box-shadow: 0 20px 60px rgba(102, 187, 106, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+[data-character="dexter"] .character-glow {
+  background: radial-gradient(circle, rgba(0, 191, 165, 0.4) 0%, transparent 70%);
+}
+[data-character="dexter"] .character-name { color: var(--cioccolato-profondo); }
+[data-character="dexter"] .character-tagline { 
+  color: var(--cioccolato-profondo); 
+  background: rgba(45, 27, 8, 0.07);
+  border: 1px solid rgba(45, 27, 8, 0.15);
+}
+
+/* PETER PAN - Slide 6 (Pacchetti) */
+[data-character="peter"] {
+  background: linear-gradient(145deg, #e3f2fd 0%, #90caf9 50%, #42a5f5 100%);
+  border: 3px solid var(--cioccolato-profondo);
+  box-shadow: 0 20px 60px rgba(66, 165, 245, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+[data-character="peter"] .character-glow {
+  background: radial-gradient(circle, rgba(240, 98, 146, 0.4) 0%, transparent 70%);
+}
+[data-character="peter"] .character-name { color: var(--cioccolato-profondo); }
+[data-character="peter"] .character-tagline { 
+  color: var(--cioccolato-profondo); 
+  background: rgba(240, 98, 146, 0.12);
+  border: 1px solid rgba(240, 98, 146, 0.25);
+}
+
+/* BAYMAX - Slide 7 (Sicurezza) */
+[data-character="baymax"] {
+  background: linear-gradient(145deg, #eceff1 0%, #cfd8dc 50%, #b0bec5 100%);
+  border: 3px solid var(--turchese-menta);
+  box-shadow: 0 20px 60px rgba(0, 191, 165, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+[data-character="baymax"] .character-glow {
+  background: radial-gradient(circle, rgba(0, 191, 165, 0.4) 0%, transparent 70%);
+}
+[data-character="baymax"] .character-name { color: var(--cioccolato-profondo); }
+[data-character="baymax"] .character-tagline { 
+  color: var(--cioccolato-profondo); 
+  background: rgba(0, 191, 165, 0.12);
+  border: 1px solid rgba(0, 191, 165, 0.25);
+}
+
+/* Hover tilt effect on character showcase */
+.character-showcase:hover {
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+   SPECIFICATIONS DETAILS COLUMN
+   ========================================================================== */
+.specs-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  z-index: 10;
+  position: relative;
+}
+
+.spec-tag-item {
+  background-color: rgba(255, 253, 249, 0.85);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 2px solid var(--cioccolato-profondo);
+  padding: 12px 18px;
+  border-radius: 16px;
+  box-shadow: 4px 4px 0 var(--cioccolato-profondo);
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--cioccolato-profondo);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+}
+
+.spec-tag-item:hover {
+  transform: scale(1.04) translateY(-2px);
+  box-shadow: 6px 6px 0 var(--cioccolato-profondo);
+}
+
+.spec-icon {
+  font-size: 1.3rem;
+}
+
+/* Floating Polaroid photos */
+.floating-polaroid-photo {
+  margin-top: 20px;
+  background: var(--bianco-caldo);
+  border: 3px solid var(--cioccolato-profondo);
+  border-radius: 16px;
+  padding: 12px 12px 28px 12px;
+  box-shadow: 6px 6px 0 var(--cioccolato-profondo);
+  transform: rotate(3deg) scale(0.9);
+  transition: transform 0.5s ease;
+  position: relative;
+  will-change: transform;
+}
+
+.floating-polaroid-photo img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--cioccolato-profondo);
+}
+
+.floating-polaroid-photo::after {
+  content: '✨ Polaroid Reale';
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-title);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cioccolato-profondo);
+}
+
+.floating-polaroid-photo:hover {
+  transform: rotate(-1deg) scale(1.02);
+}
+
+/* ==========================================================================
+   RESPONSIVENESS (HOMEPAGE-SPECIFIC)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .hero-columns {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+    min-height: auto;
+  }
+
+  .character-showcase {
+    width: 220px;
+    height: 300px;
+  }
+  .character-icon {
+    width: 130px;
+    height: 130px;
+  }
+  .character-name {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sticky-bottom-bar {
+    padding: 10px 15px;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .sticky-bar-desc {
+    display: none;
+  }
+  .sticky-bar-title {
+    font-size: 0.95rem;
+  }
+  .btn-sticky-cta {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+  }
+}

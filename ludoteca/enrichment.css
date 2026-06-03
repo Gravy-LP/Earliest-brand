@@ -1,0 +1,85 @@
+/* ==========================================================================
+   ENRICHMENT.CSS — Enrichment Hub & STEAM Labs (enrichment.html)
+   ========================================================================== */
+
+.enrichment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 40px;
+}
+
+.steam-card {
+  position: relative;
+  background-color: var(--bianco-caldo);
+  border: 3px solid var(--cioccolato-profondo);
+  border-radius: var(--border-radius-storybook);
+  box-shadow: 8px 8px 0 var(--cioccolato-profondo);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+}
+
+.steam-card * {
+  transform-style: preserve-3d;
+}
+
+.steam-card-badge {
+  background-color: var(--rosa-fragola);
+  color: var(--bianco-caldo);
+  padding: 8px 20px;
+  font-family: var(--font-title);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  align-self: flex-start;
+  border-bottom-right-radius: 16px;
+  border-bottom: 3px solid var(--cioccolato-profondo);
+  border-right: 3px solid var(--cioccolato-profondo);
+}
+
+.steam-card-content {
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.steam-card-content h3 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.steam-card-content p {
+  opacity: 0.8;
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+.steam-card-meta {
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px dashed rgba(45, 27, 8, 0.1);
+  padding-top: 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--rosa-fragola);
+}
+
+/* Card specular glare hover — steam card */
+.steam-card:hover .storybook-glare {
+  opacity: 1;
+}
+
+/* 3D parallax children */
+.steam-card-badge, .steam-card h3 {
+  transform: translateZ(35px);
+}
+.steam-card p {
+  transform: translateZ(18px);
+}
+.steam-card-meta {
+  transform: translateZ(24px);
+}

@@ -1,0 +1,153 @@
+/* ==========================================================================
+   PRENOTAZIONE.CSS — Checkout/Booking Page Styles (prenotazione.html)
+   ========================================================================== */
+
+.checkout-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, var(--giallo-burro) 0%, var(--bianco-caldo) 100%);
+  padding: 40px 0;
+}
+
+.checkout-card {
+  width: 90%;
+  max-width: 540px;
+  background-color: var(--cioccolato-profondo);
+  color: var(--bianco-caldo);
+  border-radius: var(--border-radius-storybook);
+  padding: 50px 40px;
+  box-shadow: 0 25px 60px rgba(45, 27, 8, 0.25);
+  border: 4px solid var(--cioccolato-profondo);
+}
+
+.checkout-logo-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 35px;
+}
+
+.checkout-logo-link .logo-text {
+  color: var(--bianco-caldo);
+}
+
+.checkout-title {
+  color: var(--giallo-sole);
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.checkout-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  opacity: 0.75;
+  margin-bottom: 40px;
+}
+
+/* Modulo CRO a max 3 Campi */
+.cro-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.cro-form-group {
+  position: relative;
+}
+
+.cro-label {
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  color: rgba(255, 255, 255, 0.35);
+  transition: var(--transition-cro);
+  pointer-events: none;
+  font-size: 0.95rem;
+}
+
+.cro-input {
+  width: 100%;
+  padding: 14px 18px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  color: var(--bianco-caldo);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  outline: none;
+  transition: var(--transition-cro);
+  transition-delay: var(--delay-cro);
+}
+
+.cro-input:focus {
+  border-color: var(--rosa-fragola);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.cro-input:focus ~ .cro-label,
+.cro-input:not(:placeholder-shown) ~ .cro-label {
+  top: -10px;
+  left: 12px;
+  font-size: 0.8rem;
+  background-color: var(--cioccolato-profondo);
+  padding: 0 6px;
+  color: var(--rosa-fragola);
+  font-weight: 700;
+}
+
+.cro-input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) sepia(1) saturate(5) hue-rotate(295deg);
+  cursor: pointer;
+}
+
+/* Success Card */
+.checkout-success {
+  display: none;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.checkout-success-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  display: inline-block;
+  animation: bouncePop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes bouncePop {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+.checkout-success h2 {
+  color: var(--giallo-sole);
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.checkout-success p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   CONFETTI & PARTICLES
+   ========================================================================== */
+.confetti-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: confettiFall 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes confettiFall {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(0); opacity: 0; }
+}

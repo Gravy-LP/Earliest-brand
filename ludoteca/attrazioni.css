@@ -1,0 +1,72 @@
+/* ==========================================================================
+   ATTRAZIONI.CSS — Attrazioni Page Styles (attrazioni.html)
+   ========================================================================== */
+
+.attractions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.attraction-article {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  background-color: var(--giallo-burro);
+  border: 4px solid var(--cioccolato-profondo);
+  border-radius: var(--border-radius-storybook);
+  padding: 50px;
+  box-shadow: 12px 12px 0 var(--cioccolato-profondo);
+}
+
+.attraction-article:nth-child(even) {
+  background-color: var(--rosa-leggero);
+}
+
+.attraction-article:nth-child(even) .attraction-content {
+  order: 2;
+}
+
+.attraction-content h2 {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+}
+
+.attraction-content p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+
+.attraction-feature-list {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.attraction-feature-list li {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.attraction-feature-list li::before {
+  content: '✨';
+}
+
+/* ==========================================================================
+   RESPONSIVENESS (ATTRAZIONI-SPECIFIC)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .attraction-article {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 30px;
+  }
+  
+  .attraction-article:nth-child(even) .attraction-content {
+    order: 0;
+  }
+}
